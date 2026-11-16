@@ -1,5 +1,8 @@
 import './createAccount.css'
+import { useState } from 'react'
+import GoogleButton from '../../Services/GoogleButton'
 export default function CreateAccount() {
+    const [googleData, setGoogleData] = useState(null)
     return (
         <>
             <section className="CreateAccount w-full min-h-screen flex flex-col items-center justify-center text-center">
@@ -19,6 +22,12 @@ export default function CreateAccount() {
                     <input type="password" name="password" id="password" placeholder="Crie sua senha" />
                     <button type="submit">Enviar</button>
                 </form>
+                <div className="flex items-center justify-center gap-3 w-full">
+                    <div className="w-40 border-t border-gray-400" />
+                    <span>OU</span>
+                    <div className="w-40 border-t border-gray-400" />
+                </div>
+                <GoogleButton setGoogleData={setGoogleData}/>
             </section>
         </>
     )
