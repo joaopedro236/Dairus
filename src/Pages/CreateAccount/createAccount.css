@@ -97,3 +97,81 @@
     outline: 3px solid rgba(255, 209, 25, 0.25);
     outline-offset: 3px;
 }
+@media (max-width: 768px) {
+    .CreateAccount {
+        padding: 30px 24px;
+        gap: 25px;
+    }
+
+    .CreateAccount form {
+        max-width: 400px;
+    }
+
+    .CreateAccount header p {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .CreateAccount {
+        padding: 25px 20px;
+        gap: 25px;
+    }
+
+    .CreateAccount h1 {
+        font-size: 25px;
+    }
+
+    .CreateAccount header p {
+        max-width: 290px;
+        font-size: 13px;
+    }
+
+    .CreateAccount form {
+        max-width: 100%;
+        gap: 17px;
+    }
+
+    .CreateAccount input {
+        height: 46px;
+        font-size: 13px;
+    }
+
+    .CreateAccount label {
+        font-size: 13px;
+    }
+
+    .CreateAccount button {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .CreateAccount > div {
+        gap: 12px;
+    }
+
+    .CreateAccount > div div {
+        width: 100%;
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 360px) {
+    .CreateAccount {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .CreateAccount h1 {
+        font-size: 23px;
+    }
+
+    .CreateAccount header p {
+        font-size: 12px;
+    }
+
+    .CreateAccount input,
+    .CreateAccount button {
+        height: 44px;
+    }
+}

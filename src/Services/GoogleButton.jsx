@@ -9,7 +9,7 @@ export default function GoogleButton({setGoogleData}) {
             }}
             onError={() => console.log('Error Google')}
             text="continue_with"
-            theme="outline"
+            theme="outline" 
             shape="pill"
         />
     )
