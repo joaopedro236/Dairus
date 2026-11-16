@@ -2,7 +2,7 @@ import { GoogleLogin } from '@react-oauth/google'
 
 export default function GoogleButton({ setGoogleData }) {
     return (
-        <div className="w-full max-w-[480px]">
+        <div className="w-full max-w-[480px] px-5">
             <GoogleLogin
                 onSuccess={(response) => {
                     setGoogleData(response.credential)
