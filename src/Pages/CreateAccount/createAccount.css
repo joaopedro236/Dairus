@@ -97,81 +97,38 @@
     outline: 3px solid rgba(255, 209, 25, 0.25);
     outline-offset: 3px;
 }
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
     .CreateAccount {
-        padding: 30px 24px;
+        gap: 35px;
+    }
+
+    .CreateAccount form {
+        max-width: 420px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .CreateAccount {
+        padding: 30px 40px;
+        gap: 30px;
+    }
+
+    .CreateAccount form {
+        max-width: 380px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .CreateAccount {
+        padding: 25px 30px;
         gap: 25px;
     }
 
     .CreateAccount form {
-        max-width: 400px;
-    }
-
-    .CreateAccount header p {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .CreateAccount {
-        padding: 25px 20px;
-        gap: 25px;
+        max-width: 420px;
     }
 
     .CreateAccount h1 {
-        font-size: 25px;
-    }
-
-    .CreateAccount header p {
-        max-width: 290px;
-        font-size: 13px;
-    }
-
-    .CreateAccount form {
-        max-width: 100%;
-        gap: 17px;
-    }
-
-    .CreateAccount input {
-        height: 46px;
-        font-size: 13px;
-    }
-
-    .CreateAccount label {
-        font-size: 13px;
-    }
-
-    .CreateAccount button {
-        height: 46px;
-        font-size: 14px;
-    }
-
-    .CreateAccount > div {
-        gap: 12px;
-    }
-
-    .CreateAccount > div div {
-        width: 100%;
-        max-width: 100px;
-    }
-}
-
-@media (max-width: 360px) {
-    .CreateAccount {
-        padding: 20px 15px;
-        gap: 20px;
-    }
-
-    .CreateAccount h1 {
-        font-size: 23px;
-    }
-
-    .CreateAccount header p {
-        font-size: 12px;
-    }
-
-    .CreateAccount input,
-    .CreateAccount button {
-        height: 44px;
+        font-size: 26px;
     }
 }
