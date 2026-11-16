@@ -1,0 +1,23 @@
+body{
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    font-family: sans-serif;
+    color: var(--black);
+}
+h1 {
+    font-size: 21px;
+    font-weight: 500;
+}
+.bg-primary{
+    background-color: var(--bg-primary);
+}
+.color-bg-primary {
+    color: var(--bg-primary);
+}
+.color-primary{
+    color: var(--color-primary);
+}
+.text-gray {
+    color: var(--text-gray);
+}
