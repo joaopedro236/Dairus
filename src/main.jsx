@@ -8,9 +8,9 @@ import App from './App'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider
-      clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
+      clientId={import.meta.env.GOOGLE_CLIENT_ID}
     >
       <App />
     </GoogleOAuthProvider>
-  </StrictMode>,
+  </StrictMode>
 )
