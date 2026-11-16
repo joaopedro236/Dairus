@@ -1,8 +1,8 @@
-.CreateAccount header p {
-    max-width: 310px;
-}
+
 
 .CreateAccount {
+    width: 100%;
+    min-height: 100vh;
     padding: 30px 20px;
     gap: 30px;
 }
@@ -10,6 +10,7 @@
 .CreateAccount header {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 8px;
 }
 
@@ -43,15 +44,12 @@
     width: 100%;
     height: 48px;
     padding: 0 15px;
-
     background: var(--white);
     border: 1px solid #e5e5e5;
     border-radius: 10px;
-
     color: var(--black);
     font-size: 14px;
     outline: none;
-
     transition: 0.2s ease;
 }
 
@@ -67,20 +65,17 @@
 .CreateAccount input:hover {
     border-color: #d4d4d4;
 }
+
 .CreateAccount button {
     width: 100%;
     height: 48px;
     margin-top: 5px;
-
     background: var(--color-primary);
     color: var(--black);
-
     border: 1px solid transparent;
     border-radius: 10px;
-
     font-size: 14px;
     font-weight: 500;
-
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -97,6 +92,21 @@
     outline: 3px solid rgba(255, 209, 25, 0.25);
     outline-offset: 3px;
 }
+
+.CreateAccount .GoogleButton {
+    width: 100%;
+    max-width: 380px;
+    padding: 0 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.CreateAccount .GoogleButton iframe {
+    max-width: 100% !important;
+}
+
 @media (min-width: 1440px) {
     .CreateAccount {
         gap: 45px;
@@ -126,6 +136,10 @@
     .CreateAccount label {
         font-size: 15px;
     }
+
+    .CreateAccount .GoogleButton {
+        max-width: 460px;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
@@ -151,6 +165,10 @@
     .CreateAccount input,
     .CreateAccount button {
         height: 52px;
+    }
+
+    .CreateAccount .GoogleButton {
+        max-width: 420px;
     }
 }
 
@@ -179,11 +197,15 @@
         height: 48px;
     }
 
-    .CreateAccount > div {
+    .CreateAccount .GoogleButton {
         max-width: 500px;
     }
 
-    .CreateAccount > div div {
+    .CreateAccount > div:not(.GoogleButton) {
+        max-width: 500px;
+    }
+
+    .CreateAccount > div:not(.GoogleButton) div {
         max-width: 150px;
     }
 }
