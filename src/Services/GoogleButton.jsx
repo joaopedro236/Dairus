@@ -1,6 +1,6 @@
 import { GoogleLogin } from '@react-oauth/google'
 
-export default function GoogleButton({setGoogleData}) {
+export default function GoogleButton({ setGoogleData }) {
     return (
         <GoogleLogin
             onSuccess={(response) => {
@@ -9,8 +9,9 @@ export default function GoogleButton({setGoogleData}) {
             }}
             onError={() => console.log('Error Google')}
             text="continue_with"
-            theme="outline" 
-            shape="pill"
+            theme="outline"
+            width="480"
+            shape="rectangular"
         />
     )
 }
