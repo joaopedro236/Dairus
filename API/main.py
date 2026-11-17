@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from Routers.Users.createAccount import router as createAccount
 from Database.Database.users import database as db_user
 from Routers.Users.createAccountGoogle import router as createAccountGoogle
+from Routers.Users.Login import router as login
 from fastapi.responses import JSONResponse
 import time
 from collections import defaultdict
@@ -48,6 +49,7 @@ app.add_middleware(
 )
 app.include_router(createAccount)
 app.include_router(createAccountGoogle)
+app.include_router(login)
 
 
 @app.on_event("startup")

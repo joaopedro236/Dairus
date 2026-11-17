@@ -4,7 +4,7 @@ import zxcvbn from 'zxcvbn'
 import GoogleButton from '../../Services/GoogleButton'
 import createAccountGoogleRequisition from '../../Requisitions/createAccountGoogle'
 import createAccountRequisition from '../../Requisitions/createAccount'
-export default function CreateAccount() {
+export default function CreateAccount(section, setSection) {
     const [googleData, setGoogleData] = useState(null)
     const [loading, setLoading] = useState(false)
     const [password, setPassword] = useState('')
@@ -36,7 +36,7 @@ export default function CreateAccount() {
     };
     return (
         <>
-            <section className="CreateAccount w-full min-h-screen flex flex-col items-center justify-center text-center">
+            <section className={`CreateAccount w-full min-h-screen ${section === 'createAccount' ? 'flex' : 'hidden'} flex-col items-center justify-center text-center`}>
                 <header>
 
                     <h1>Cadastro</h1>
@@ -126,8 +126,10 @@ export default function CreateAccount() {
                                 {loading ? 'Carregando' : 'Finalizar cadastro'}
                             </button>
                         </form>
+
                     </>
                 )}
+                <p>Você já tem uma conta? <button type="button" onClick={() => setSection('login')} className="text-blue-500 hover:underline">Faça login</button></p>
             </section>
         </>
     )
