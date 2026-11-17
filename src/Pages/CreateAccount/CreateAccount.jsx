@@ -4,7 +4,7 @@ import zxcvbn from 'zxcvbn'
 import GoogleButton from '../../Services/GoogleButton'
 import createAccountGoogleRequisition from '../../Requisitions/createAccountGoogle'
 import createAccountRequisition from '../../Requisitions/createAccount'
-export default function CreateAccount(section, setSection) {
+export default function CreateAccount({section, setSection}) {
     const [googleData, setGoogleData] = useState(null)
     const [loading, setLoading] = useState(false)
     const [password, setPassword] = useState('')

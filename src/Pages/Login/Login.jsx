@@ -1,6 +1,6 @@
 import './login.css'
 import loginRequisition from '../../Requisitions/login'
-export default function Login(section, setSection) {
+export default function Login({section, setSection}) {
     const handleSubmit = async (e)=>{
          e.preventDefault()
         const formData = Object.fromEntries(new FormData(e.target))
