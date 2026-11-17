@@ -24,7 +24,7 @@ export default function CreateAccount() {
 
         if (googleData) {
             await createAccountRequisition({
-                credential: googleData.credential,
+                credential: googleData,
                 password
             }, setLoading);
             return;
@@ -89,7 +89,7 @@ export default function CreateAccount() {
                     </>
                 ) : (
                     <>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-4">
                             <label>Senha</label>
                             <input
                                 type="password"
