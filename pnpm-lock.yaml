@@ -23,6 +23,9 @@ importers:
       tailwindcss:
         specifier: ^4.3.5
         version: 4.3.5
+      zxcvbn:
+        specifier: ^4.4.2
+        version: 4.4.2
     devDependencies:
       '@types/react':
         specifier: ^19.3.0
@@ -645,6 +648,9 @@ packages:
       yaml:
         optional: true
 
+  zxcvbn@4.4.2:
+    resolution: {integrity: sha512-Bq0B+ixT/DMyG8kgX2xWcI5jUvCwqrMxSFam7m0lAf78nf04hv6lNCsyLYdyYTrCVMqNDY/206K7eExYCeSyUQ==}
+
 snapshots:
 
   '@emnapi/core@2.0.0-beta.2':
@@ -1055,3 +1061,5 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
       jiti: 2.7.0
+
+  zxcvbn@4.4.2: {}

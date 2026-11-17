@@ -1,8 +1,27 @@
 import './createAccount.css'
 import { useState } from 'react'
+import zxcvbn from 'zxcvbn'
 import GoogleButton from '../../Services/GoogleButton'
+import createAccountRequisition from '../../Requisitions/createAccount'
 export default function CreateAccount() {
     const [googleData, setGoogleData] = useState(null)
+    const [password, setPassword] = useState('')
+
+    const passwordStrength = zxcvbn(password).score
+
+    const strengthLabels = [
+        'Muito fraca',
+        'Fraca',
+        'Razoável',
+        'Forte',
+        'Muito forte'
+    ]
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (passwordStrength < 3) return;
+        const data = Object.fromEntries(new FormData(e.target));
+        createAccountRequisition(data)
+    };
     return (
         <>
             <section className="CreateAccount w-full min-h-screen flex flex-col items-center justify-center text-center">
@@ -11,7 +30,7 @@ export default function CreateAccount() {
                     <h1>Cadastro</h1>
                     <p className='text-gray text-sm'>Preenche o cadastro, crie sua conta e tenha uma experiencia magica!</p>
                 </header>
-                <form className="flex flex-col items-center justify-center">
+                <form className="flex flex-col items-center justify-center" onSubmit={handleSubmit}>
                     <label htmlFor="name">Nome</label>
                     <input type="text" name="name" id="name" placeholder="Coloque seu nome" />
 
@@ -19,15 +38,40 @@ export default function CreateAccount() {
                     <input type="email" name="email" id="email" placeholder="Coloque seu e-mail" />
 
                     <label htmlFor="password">Senha</label>
-                    <input type="password" name="password" id="password" placeholder="Crie sua senha" />
-                    <button type="submit">Enviar</button>
+                    <input type="password" value={password}
+                        onChange={(e) => setPassword(e.target.value)} name="password" id="password" placeholder="Crie sua senha" />
+                    {password && (
+                        <div className="w-full text-left">
+                            <div className="flex gap-1 mt-2">
+                                {[0, 1, 2, 3].map((level) => (
+                                    <div
+                                        key={level}
+                                        className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${level < passwordStrength
+                                                ? [
+                                                    'bg-red-500',
+                                                    'bg-orange-500',
+                                                    'bg-yellow-400',
+                                                    'bg-green-500'
+                                                ][passwordStrength - 1]
+                                                : 'bg-gray-300'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+
+                            <p className="text-sm mt-1">
+                                Força da senha: {strengthLabels[passwordStrength]}
+                            </p>
+                        </div>
+                    )}
+                    <button type="submit" disabled={passwordStrength < 3}                                                                                     >Enviar</button>
                 </form>
                 <div className="flex items-center justify-center gap-3 w-full">
                     <div className="w-40 border-t border-gray-400" />
                     <span>OU</span>
                     <div className="w-40 border-t border-gray-400" />
                 </div>
-                <GoogleButton setGoogleData={setGoogleData}/>
+                <GoogleButton setGoogleData={setGoogleData} />
             </section>
         </>
     )
