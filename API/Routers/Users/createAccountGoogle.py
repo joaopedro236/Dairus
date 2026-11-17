@@ -31,8 +31,11 @@ def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
 
         email = google_data["email"]
         name = google_data["name"]
+        if not email or not name:
+            return {"Status": False, "Error": "Invalid Google data"}
+
         if not google_data.get("email_verified"):
-                return {"Status": False, "Error": "Google email not verified"}
+            return {"Status": False, "Error": "Google email not verified"}
         picture = google_data.get("picture")
         conn, cursor = connect_database()
 

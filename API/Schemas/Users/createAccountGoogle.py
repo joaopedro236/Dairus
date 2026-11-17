@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 class createAccountGoogleSchema(BaseModel):
-    data: str
+    credential: str
     password: str
