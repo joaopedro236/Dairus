@@ -14,7 +14,7 @@ def login(data: loginSchema, response: Response):
     try:
         conn, cursor = connect_database()
         cursor.execute('select session_token from users where email = %s ', (data.email, ))
-        result = cursor.fetchall()
+        result = cursor.fetchone()
         if not result:
             return {'Status': False, 'Error': 'This account does not exist'}
         try:
@@ -26,7 +26,7 @@ def login(data: loginSchema, response: Response):
             value=result[0],
             httponly=True,
             max_age=60 * 60 * 24 * 7,
-            samesite="lax",
+            samesite="none",
             secure=True,
             path="/",
         )

@@ -73,7 +73,7 @@ def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
             value=session_token,
             httponly=True,
             max_age=60 * 60 * 24 * 14,
-            samesite="lax",
+            samesite="none",
             secure=True,
             path="/"
         )
