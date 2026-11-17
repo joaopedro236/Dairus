@@ -24,7 +24,7 @@ export default function CreateAccount() {
 
         if (googleData) {
             await createAccountRequisition({
-                credential: googleData,
+                credential: googleData.credential,
                 password
             }, setLoading);
             return;
