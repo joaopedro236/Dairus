@@ -19,8 +19,14 @@ def createAccount(data: createAccountSchema,responseCookie: Response):
 Name: {data.name}'''
         response = groqResponse(prompt)
 
-        if "BLOCK" in response.upper():
+        if isinstance(response, dict):
+            response = response["choices"][0]["message"]["content"]
+
+        response = response.strip().upper()
+
+        if "BLOCK" in response:
             return {"Status": False, 'Error': 'Name with inappropriate content'}
+
         if response != "SAFE":
             return {"Status": False, "Error": "Unable to validate name"}
         session_token = str(uuid.uuid4())
