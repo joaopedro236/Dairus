@@ -8,8 +8,10 @@ export default async function createAccountRequisition(data) {
             },
             body: JSON.stringify(data),
         })
-        const data = await response.json()
-
+        const responseData = await response.json()
+        if (responseData?.Error) {
+            alert(responseData?.Error)
+        }
     } catch (error) {
         alert(error)
     }
