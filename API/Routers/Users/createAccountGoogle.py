@@ -11,7 +11,6 @@ ph = PasswordHasher()
 
 router = APIRouter()
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
-IMG_BB_URL = os.getenv("IMG_BB_URL")
 @router.post('/createAccount/googleAuth')
 def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
     conn = None
