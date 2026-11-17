@@ -31,6 +31,10 @@ Name: {data.name}'''
             return {"Status": False, "Error": "Unable to validate name"}
         session_token = str(uuid.uuid4())
         hashPassword = ph.hash(data.password)
+        cursor.execute('select email from users where email =%s', (data.email, ))
+        emailExists = cursor.fetchall()
+        if emailExists:
+            return {'Status': False, 'Error': 'This email already exists'}
         cursor.execute(
             """
             INSERT INTO users(

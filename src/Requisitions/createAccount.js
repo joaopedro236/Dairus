@@ -1,5 +1,6 @@
-export default async function createAccountRequisition(data) {
+export default async function createAccountRequisition(data, setLoading) {
     try {
+        setLoading(true)
         const response = await fetch(`${import.meta.env.VITE_API_URL}/createAccount`, {
             method: 'POST'
             , credentials: "include",
@@ -14,5 +15,7 @@ export default async function createAccountRequisition(data) {
         }
     } catch (error) {
         alert(error)
+    }finally{
+        setLoading(false)
     }
 }   
