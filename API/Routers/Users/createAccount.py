@@ -17,8 +17,12 @@ def createAccount(data: createAccountSchema,responseCookie: Response):
         
         prompt = f'''Analyze the following name and determine whether it contains inappropriate, offensive, vulgar, hateful, or sexually explicit content. Return only "BLOCK" if inappropriate, or "SAFE" if acceptable.
 Name: {data.name}'''
-        response = groqResponse(prompt)
-        response = response["response"].strip().upper()
+        result = groqResponse(prompt)
+
+        if not isinstance(result, dict) or "response" not in result:
+            return {"Status": False, "Error": "Groq response invalid"}
+
+        response = str(result["response"]).strip().upper()
 
         if "BLOCK" in response:
             return {"Status": False, "Error": "Name with inappropriate content"}
