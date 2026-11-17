@@ -2,6 +2,7 @@ import './createAccount.css'
 import { useState } from 'react'
 import zxcvbn from 'zxcvbn'
 import GoogleButton from '../../Services/GoogleButton'
+import createAccountGoogleRequisition from '../../Requisitions/createAccountGoogle'
 import createAccountRequisition from '../../Requisitions/createAccount'
 export default function CreateAccount() {
     const [googleData, setGoogleData] = useState(null)
@@ -23,7 +24,7 @@ export default function CreateAccount() {
         if (passwordStrength < 3) return;
 
         if (googleData) {
-            await createAccountRequisition({
+            await createAccountGoogleRequisition({
                 credential: googleData,
                 password
             }, setLoading);
