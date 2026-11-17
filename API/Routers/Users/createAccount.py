@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Response
-from ...Schemas.Users.createAccount import createAccountSchema
-from ...Database.Conn.release_database import release_database
-from ...Database.Conn.users import connect_database, poolUser
-from ...Services.groq import groqResponse
+from Schemas.Users.createAccount import createAccountSchema
+from Database.Conn.release_database import release_database
+from Database.Conn.users import connect_database, poolUser
+from Services.groq import groqResponse
 import uuid
 from argon2 import PasswordHasher
 router = APIRouter()
