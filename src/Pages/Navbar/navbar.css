@@ -1,9 +1,42 @@
+
 .Navbar {
     border-bottom: 1px solid var(--border-navbar);
     height: 65px;
+    padding: 0 28px;
+    background: var(--bg-primary);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
+
 .titleNavbar {
     font-weight: 800;
-    
-    font-size: 27px;
+    font-size: 25px;
+    letter-spacing: -1px;
+    color: var(--white);
+    user-select: none;
+}
+
+.Navbar img {
+    object-fit: cover;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.Navbar img:first-child {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--border-navbar);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Navbar img:last-child {
+    width: 27px;
+    height: 27px;
+    padding: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.Navbar img:hover {
+    opacity: 1;
+    transform: scale(1.06);
 }

@@ -7,8 +7,8 @@ export default  function Navbar({userInformations}){
         <section className="Navbar flex fixed z-[99] bg-primary top-0 left-0 w-full  items-center justify-between p-2 px-6">
             <h1 className='titleNavbar'>Dairus</h1>
             <div className='flex gap-4 items-center '>
-                <img src={userInformations?.image_url || hiddenPhoto} alt="User photo" loading='lazy' className='w-full max-w-9 rounded-full h-9' />
-                <img src={iconMenu} alt="icon Menu" loading='lazy' className='w-full max-w-9 ' />
+                <img src={userInformations?.image_url || hiddenPhoto} alt="User photo" loading='lazy' className='w-full max-w-8 rounded-full h-8' />
+                <img src={iconMenu} alt="icon Menu" loading='lazy' className='w-full max-w-8 ' />
             </div>
         </section>
         </>
