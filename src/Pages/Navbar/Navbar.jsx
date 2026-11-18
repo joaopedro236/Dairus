@@ -21,7 +21,8 @@ export default function Navbar({ userInformations }) {
                     </div>
                     <img
                         src={userInformations?.image_url || hiddenPhoto}
-                        alt=""
+                        alt="photo user"
+                        loading='lazy'
                         className="navbar-avatar"
                     />
                     <button
@@ -46,15 +47,15 @@ export default function Navbar({ userInformations }) {
                         aria-label="Navegação principal"
                         hidden={!isMenuOpen}
                     >
-                        <a href="#inicio" onClick={() => setIsMenuOpen(false)}>
+                        <a onClick={() => setIsMenuOpen(false)}>
                             <span>Início</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
-                        <a href="#criar-post" onClick={() => setIsMenuOpen(false)}>
+                        <a  onClick={() => setIsMenuOpen(false)}>
                             <span>Criar post</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
-                        <a href="#perfil" onClick={() => setIsMenuOpen(false)}>
+                        <a  onClick={() => setIsMenuOpen(false)}>
                             <span>Perfil</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
