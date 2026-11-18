@@ -7,6 +7,6 @@ export default async function getUserRequisition(setUserInformations) {
         if (data?.Error) alert(data?.Error)
         setUserInformations(data)
     } catch (error) {
-        alert(error)
+        console.error(error)
     }
 }

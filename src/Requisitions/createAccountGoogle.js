@@ -26,7 +26,7 @@ export default async function createAccountRequisition(data, setLoading) {
         return responseData
 
     } catch (error) {
-        alert(error)
+        console.error(error)
     } finally {
         setLoading(false)
     }

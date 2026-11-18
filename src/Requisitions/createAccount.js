@@ -14,7 +14,7 @@ export default async function createAccountRequisition(data, setLoading) {
             alert(responseData?.Error)
         }
     } catch (error) {
-        alert(error)
+        console.error(error)
     }finally{
         setLoading(false)
     }

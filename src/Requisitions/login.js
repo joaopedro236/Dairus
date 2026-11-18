@@ -11,6 +11,6 @@ export default async function loginRequisition(formData) {
         const data = await response.json()
         if (data?.Error) alert(data?.Error)
     } catch (error) {
-        alert(error)
+        console.error(error)
     }
 }

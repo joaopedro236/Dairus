@@ -11,7 +11,7 @@ export default async function checkUserRequisition({setAccountExists, setLoading
         }
         setAccountExists(true)
     } catch (error) {
-        alert(error)
+        console.error(error)
     } finally{
         setLoading(false)
     }
