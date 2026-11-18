@@ -23,7 +23,7 @@
   height: 50px;
 
   border: 5px solid #e5e7eb;
-  border-top: 5px solid var(--bs-primary);
+  border-top: 5px solid var(--bg-primary);
 
   border-radius: 50%;
 
