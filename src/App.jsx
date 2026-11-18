@@ -30,7 +30,11 @@ function App() {
     const navbar = document.querySelector('.Navbar')
     if (!navbar) return
 
+    const originalPosition = navbar.style.position
+    const originalTop = navbar.style.top
     const updateBodyPadding = () => {
+      navbar.style.position = 'fixed'
+      navbar.style.top = '0'
       document.body.style.paddingTop = `${navbar.getBoundingClientRect().height}px`
     }
 
@@ -38,6 +42,8 @@ function App() {
     window.addEventListener('resize', updateBodyPadding)
     return () => {
       window.removeEventListener('resize', updateBodyPadding)
+      navbar.style.position = originalPosition
+      navbar.style.top = originalTop
       document.body.style.paddingTop = ''
     }
   }, [accountExists])
