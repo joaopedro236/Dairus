@@ -1,16 +1,29 @@
 import './navbar.css'
 import hiddenPhoto from '../../assets/no-profile-picture-icon.webp'
-import iconMenu from '../../assets/menu-alt-1-svgrepo-com.svg'
-export default  function Navbar({userInformations}){
+
+export default function Navbar({ userInformations }) {
+    const userName = userInformations?.name?.trim() || 'Minha conta'
+
     return (
-        <>
-        <section className="Navbar flex fixed z-[99] bg-primary top-0 left-0 w-full  items-center justify-between p-2 px-6">
-            <h1 className='titleNavbar'>Dairus</h1>
-            <div className='flex gap-4 items-center '>
-                <img src={userInformations?.image_url || hiddenPhoto} alt="User photo" loading='lazy' className='w-full max-w-8 rounded-full h-8' />
-                <img src={iconMenu} alt="icon Menu" loading='lazy' className='w-full max-w-8 ' />
+        <header className="Navbar">
+            <div className="navbar-content">
+                <div className="navbar-brand" aria-label="Dairus">
+                    <span className="navbar-brand-mark" aria-hidden="true">D</span>
+                    <span className="navbar-brand-name">Dairus</span>
+                </div>
+
+                <div className="navbar-profile">
+                    <div className="navbar-profile-copy">
+                        <span className="navbar-profile-label">Bem-vindo</span>
+                        <span className="navbar-profile-name">{userName}</span>
+                    </div>
+                    <img
+                        src={userInformations?.image_url || hiddenPhoto}
+                        alt=""
+                        className="navbar-avatar"
+                    />
+                </div>
             </div>
-        </section>
-        </>
+        </header>
     )
 }
