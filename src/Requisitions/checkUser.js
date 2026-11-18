@@ -9,7 +9,7 @@ export default async function checkUserRequisition({setAccountExists, setLoading
         if (data?.Error) {
             alert(data?.Error)
         }
-        setAccountExists(true)
+        setAccountExists(data?.Status)
     } catch (error) {
         console.error(error)
     } finally{
