@@ -21,6 +21,26 @@ function App() {
   useEffect(() => {
     getUserRequisition(setUserInformations)
   }, [accountExists])
+  useEffect(() => {
+    if (!accountExists) {
+      document.body.style.paddingTop = ''
+      return
+    }
+
+    const navbar = document.querySelector('.Navbar')
+    if (!navbar) return
+
+    const updateBodyPadding = () => {
+      document.body.style.paddingTop = `${navbar.getBoundingClientRect().height}px`
+    }
+
+    updateBodyPadding()
+    window.addEventListener('resize', updateBodyPadding)
+    return () => {
+      window.removeEventListener('resize', updateBodyPadding)
+      document.body.style.paddingTop = ''
+    }
+  }, [accountExists])
   return (
     <>
       {
@@ -31,7 +51,7 @@ function App() {
         <CreateAccount section={section} setSection={setSection} />
         <Login section={section} setSection={setSection} />
       </section>
-      <main className={`${accountExists ? 'flex' : 'hidden'}`}>
+      <main className={`${accountExists ? 'flex' : 'hidden'} flex-col `}>
         <Navbar userInformations={userInformations} setSection={setSection}/>
         <Profile userInformations={userInformations} section={section}/>
       </main>
