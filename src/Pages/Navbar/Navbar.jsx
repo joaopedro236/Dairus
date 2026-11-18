@@ -17,7 +17,7 @@ export default function Navbar({ userInformations }) {
                 <div className="navbar-profile">
                     <div className="navbar-profile-copy">
                         <span className="navbar-profile-label">Bem-vindo</span>
-                        <span className="navbar-profile-name">{userName}</span>
+                        <span className="navbar-profile-name">{userName.split(' ').slice(0, 2).join(' ')}</span>
                     </div>
                     <img
                         src={userInformations?.image_url || hiddenPhoto}
