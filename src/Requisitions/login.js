@@ -10,6 +10,7 @@ export default async function loginRequisition(formData) {
         })
         const data = await response.json()
         if (data?.Error) alert(data?.Error)
+        if (data?.Status) window.location.reload()
     } catch (error) {
         console.error(error)
     }

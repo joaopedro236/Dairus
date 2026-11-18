@@ -23,6 +23,7 @@ export default async function createAccountRequisition(data, setLoading) {
             alert(responseData.Error)
         }
 
+        if (responseData?.Status) window.location.reload()
         return responseData
 
     } catch (error) {

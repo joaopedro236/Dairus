@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login'
 import getUserRequisition from './Requisitions/getUser'
 import Navbar from './Pages/Navbar/Navbar'
 import checkUserRequisition from './Requisitions/checkUser'
+import Profile from './Pages/Profile/Profile'
 function App() {
   const [section, setSection] = useState('login')
   const [loading, setLoading] = useState(false)
@@ -32,6 +33,7 @@ function App() {
       </section>
       <main className={`${accountExists ? 'flex' : 'hidden'}`}>
         <Navbar userInformations={userInformations} setSection={setSection}/>
+        <Profile userInformations={userInformations} setSection={setSection}/>
       </main>
     </>
   )
