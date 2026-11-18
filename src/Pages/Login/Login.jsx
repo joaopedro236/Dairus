@@ -1,4 +1,4 @@
-import './login.css'
+
 import loginRequisition from '../../Requisitions/login'
 export default function Login({section, setSection}) {
     const handleSubmit = async (e)=>{
