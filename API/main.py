@@ -3,6 +3,9 @@ from Routers.Users.createAccount import router as createAccount
 from Database.Database.users import database as db_user
 from Routers.Users.createAccountGoogle import router as createAccountGoogle
 from Routers.Users.Login import router as login
+from Routers.Users.checkUser import router as checkUser
+from Routers.Users.getUser import router as getUser
+from Middlewares.AuthMiddleware import AuthMiddleware
 from fastapi.responses import JSONResponse
 import time
 from collections import defaultdict
@@ -47,9 +50,12 @@ app.add_middleware(
     allow_headers=["*"],
     expose_headers=["Set-Cookie"],
 )
+app.middleware("http")(AuthMiddleware)
 app.include_router(createAccount)
 app.include_router(createAccountGoogle)
 app.include_router(login)
+app.include_router(checkUser)
+app.include_router(getUser)
 
 
 @app.on_event("startup")

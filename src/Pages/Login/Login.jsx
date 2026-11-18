@@ -20,7 +20,7 @@ export default function Login({section, setSection}) {
                 <input type="password" name="password" id="password"  placeholder='Digite sua senha' required/>
                 <button type="submit">Enviar</button>
             </form>
-            <p>Você não tem uma conta? <span onClick={() => setSection('createAccount')} className="text-blue-500 hover:underline cursor-pointer">Crie uma</span></p>
+            <p className='text-ltt'>Você não tem uma conta? <span onClick={() => setSection('createAccount')} className="text-blue-500 text-ltt hover:underline cursor-pointer">Crie uma</span></p>
         </section>
         </>
     )

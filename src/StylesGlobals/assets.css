@@ -21,3 +21,6 @@ h1 {
 .text-gray {
     color: var(--text-gray);
 }
+.text-ltt {
+    font-size: 13px;
+}

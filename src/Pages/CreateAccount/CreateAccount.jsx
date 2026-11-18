@@ -129,7 +129,7 @@ export default function CreateAccount({section, setSection}) {
 
                     </>
                 )}
-                <p>Você já tem uma conta? <span onClick={() => setSection('login')} className="text-blue-500 hover:underline cursor-pointer">Faça login</span></p>
+                <p className='text-ltt'>Você já tem uma conta? <span onClick={() => setSection('login')} className="text-ltt text-blue-500 hover:underline cursor-pointer">Faça login</span></p>
             </section>
         </>
     )
