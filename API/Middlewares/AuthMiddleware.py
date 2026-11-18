@@ -21,7 +21,7 @@ async def AuthMiddleware(request: Request, call_next):
     if (request.method, path) in PUBLIC_ROUTES:
         return await call_next(request)
 
-    token = request.cookies.get("authorization")
+    token = request.cookies.get("user_session_token")
     if not token:
         return JSONResponse(
                     status_code=200,
