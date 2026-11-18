@@ -35,7 +35,7 @@ function App() {
     const updateBodyPadding = () => {
       navbar.style.position = 'fixed'
       navbar.style.top = '0'
-      document.body.style.paddingTop = `${navbar.getBoundingClientRect().height}px`
+      document.body.style.paddingTop = `${navbar.getBoundingClientRect().height + 35}px`
     }
 
     updateBodyPadding()
