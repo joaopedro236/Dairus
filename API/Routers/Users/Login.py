@@ -23,7 +23,7 @@ def login(data: loginSchema, response: Response):
             return {'Status': False, 'Error': 'Invalid password'}
         response.set_cookie(
             key="user_session_token",
-            value=result[0],
+            value=result[1],
             httponly=True,
             max_age=60 * 60 * 24 * 7,
             samesite="none",
