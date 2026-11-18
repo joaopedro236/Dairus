@@ -12,7 +12,10 @@ def getUser(request: Request):
         if not session_token:
             return {'Status': False, 'Message': "Don't have an account"}
         cursor.execute('select name, email, image_url from users where session_token = %s', (session_token,))
+        
         response = cursor.fetchone()
+        if not response:
+            return {'Status': False, 'Message': 'User not found'}
         return {'Status': True, 'name': response[0], 'email': response[1], 'image_url': response[2]}
     except Exception as e:
         return {'Status': False, 'Error': str(e)}
