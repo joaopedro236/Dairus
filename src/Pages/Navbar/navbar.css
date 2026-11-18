@@ -1,50 +1,55 @@
 
 .Navbar {
-    height: 70px;
-    padding: 0 30px;
+    height: 72px;
+    padding: 0 36px;
     background: var(--white);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid #eeeeef;
     z-index: 99;
 }
 
 .titleNavbar {
-    font-size: 25px;
-    font-weight: 850;
-    letter-spacing: -1.1px;
-    color: #252525;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -1.4px;
+    color: #202124;
+    line-height: 1;
 }
 
 .Navbar > div {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
 }
 
 .Navbar img:first-child {
-    width: 38px;
-    height: 38px;
+    width: 39px;
+    height: 39px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #f1f1f1;
+    border: 2px solid #f2f2f2;
     cursor: pointer;
-}
-
-.Navbar img:last-child {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    opacity: 0.65;
-    cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.Navbar img:last-child:hover {
-    opacity: 1;
-    transform: scale(1.08);
+    transition: border-color 0.2s ease;
 }
 
 .Navbar img:first-child:hover {
     border-color: var(--color-primary);
+}
+
+.Navbar img:last-child {
+    width: 40px;
+    height: 40px;
+    padding: 9px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f7f7f8;
+    opacity: 0.75;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.Navbar img:last-child:hover {
+    background: var(--color-primary-light);
+    opacity: 1;
 }
 
 @media (max-width: 480px) {
@@ -54,15 +59,21 @@
     }
 
     .titleNavbar {
-        font-size: 23px;
+        font-size: 24px;
     }
 
     .Navbar > div {
-        gap: 14px;
+        gap: 11px;
     }
 
     .Navbar img:first-child {
         width: 36px;
         height: 36px;
+    }
+
+    .Navbar img:last-child {
+        width: 36px;
+        height: 36px;
+        padding: 8px;
     }
 }
