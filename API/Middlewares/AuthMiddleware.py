@@ -22,7 +22,12 @@ async def AuthMiddleware(request: Request, call_next):
         return await call_next(request)
 
     token = request.cookies.get("authorization")
-
+    if not token:
+        return JSONResponse(
+                    status_code=200,
+                    content={"Status": False, "Message": "Unauthorized"}
+                )
+        
     conn = None
     cursor = None
 
