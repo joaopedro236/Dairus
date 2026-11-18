@@ -124,72 +124,59 @@
     stroke-width: 1.8;
 }
 
-.navbar-account-menu {
+.navbar-navigation-menu {
     position: absolute;
     top: calc(100% + 15px);
     right: 0;
     z-index: 100;
-    width: min(320px, calc(100vw - 36px));
+    width: min(260px, calc(100vw - 36px));
     overflow: hidden;
     border: 1px solid rgba(23, 23, 23, 0.08);
-    border-radius: 16px;
+    border-radius: 14px;
     background: #fff;
     box-shadow: 0 16px 40px rgba(23, 23, 23, 0.14);
 }
 
-.navbar-account-menu[hidden] {
+.navbar-navigation-menu[hidden] {
     display: none;
 }
 
-.navbar-account-details {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 18px 20px;
-}
-
-.navbar-account-label {
-    color: #858585;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.navbar-account-details strong {
-    overflow: hidden;
-    color: var(--black);
-    font-size: 15px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.navbar-account-email {
-    overflow: hidden;
-    color: var(--text-gray);
-    font-size: 13px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.navbar-account-status {
+.navbar-navigation-menu a {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    border-top: 1px solid rgba(23, 23, 23, 0.07);
-    background: #fcfcfa;
-    color: #525252;
-    font-size: 12px;
-    font-weight: 500;
+    justify-content: space-between;
+    padding: 14px 17px;
+    color: #383838;
+    font-size: 14px;
+    font-weight: 550;
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
 }
 
-.navbar-status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #3ca66b;
-    box-shadow: 0 0 0 3px rgba(60, 166, 107, 0.13);
+.navbar-navigation-menu a + a {
+    border-top: 1px solid rgba(23, 23, 23, 0.06);
+}
+
+.navbar-navigation-menu a:hover,
+.navbar-navigation-menu a:focus-visible {
+    background: #fff9e8;
+    color: #8a6800;
+}
+
+.navbar-navigation-menu a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.navbar-navigation-arrow {
+    color: #a7a7a7;
+    font-size: 18px;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.navbar-navigation-menu a:hover .navbar-navigation-arrow {
+    color: #8a6800;
+    transform: translateX(3px);
 }
 
 @media (max-width: 480px) {
@@ -238,7 +225,7 @@
         border-radius: 11px;
     }
 
-    .navbar-account-menu {
+    .navbar-navigation-menu {
         top: calc(100% + 13px);
     }
 }

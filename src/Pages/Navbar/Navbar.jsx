@@ -27,9 +27,9 @@ export default function Navbar({ userInformations }) {
                     <button
                         type="button"
                         className="navbar-menu-toggle"
-                        aria-label={isMenuOpen ? 'Fechar menu da conta' : 'Abrir menu da conta'}
+                        aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
                         aria-expanded={isMenuOpen}
-                        aria-controls="navbar-account-menu"
+                        aria-controls="navbar-navigation-menu"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -40,25 +40,25 @@ export default function Navbar({ userInformations }) {
                             )}
                         </svg>
                     </button>
-                    <div
-                        id="navbar-account-menu"
-                        className="navbar-account-menu"
-                        role="region"
-                        aria-label="Informações da conta"
+                    <nav
+                        id="navbar-navigation-menu"
+                        className="navbar-navigation-menu"
+                        aria-label="Navegação principal"
                         hidden={!isMenuOpen}
                     >
-                        <div className="navbar-account-details">
-                            <span className="navbar-account-label">Conta Dairus</span>
-                            <strong>{userName}</strong>
-                            {userInformations?.email && (
-                                <span className="navbar-account-email">{userInformations.email}</span>
-                            )}
-                        </div>
-                        <div className="navbar-account-status">
-                            <span className="navbar-status-dot" aria-hidden="true" />
-                            Sessão ativa
-                        </div>
-                    </div>
+                        <a href="#inicio" onClick={() => setIsMenuOpen(false)}>
+                            <span>Início</span>
+                            <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="#criar-post" onClick={() => setIsMenuOpen(false)}>
+                            <span>Criar post</span>
+                            <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a href="#perfil" onClick={() => setIsMenuOpen(false)}>
+                            <span>Perfil</span>
+                            <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </nav>
                 </div>
             </div>
         </header>
