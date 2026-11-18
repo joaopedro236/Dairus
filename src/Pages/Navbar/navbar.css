@@ -50,6 +50,7 @@
 }
 
 .navbar-profile {
+    position: relative;
     gap: 13px;
 }
 
@@ -88,6 +89,109 @@
     object-fit: cover;
 }
 
+.navbar-menu-toggle {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    margin-left: 2px;
+    place-items: center;
+    border: 1px solid rgba(23, 23, 23, 0.08);
+    border-radius: 12px;
+    background: #fff;
+    color: #3a3a3a;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-menu-toggle:hover,
+.navbar-menu-toggle[aria-expanded="true"] {
+    border-color: rgba(234, 191, 36, 0.55);
+    background: var(--color-primary-light);
+    color: #242018;
+}
+
+.navbar-menu-toggle:focus-visible {
+    outline: 3px solid rgba(234, 191, 36, 0.45);
+    outline-offset: 2px;
+}
+
+.navbar-menu-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.8;
+}
+
+.navbar-account-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    z-index: 100;
+    width: min(320px, calc(100vw - 36px));
+    overflow: hidden;
+    border: 1px solid rgba(23, 23, 23, 0.08);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 16px 40px rgba(23, 23, 23, 0.14);
+}
+
+.navbar-account-menu[hidden] {
+    display: none;
+}
+
+.navbar-account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px;
+}
+
+.navbar-account-label {
+    color: #858585;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.navbar-account-details strong {
+    overflow: hidden;
+    color: var(--black);
+    font-size: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar-account-email {
+    overflow: hidden;
+    color: var(--text-gray);
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.navbar-account-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(23, 23, 23, 0.07);
+    background: #fcfcfa;
+    color: #525252;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.navbar-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3ca66b;
+    box-shadow: 0 0 0 3px rgba(60, 166, 107, 0.13);
+}
+
 @media (max-width: 480px) {
     .navbar-content {
         width: calc(100% - 36px);
@@ -110,7 +214,7 @@
     }
 
     .navbar-profile {
-        gap: 9px;
+        gap: 8px;
     }
 
     .navbar-profile-label {
@@ -126,5 +230,15 @@
         width: 38px;
         height: 38px;
         flex-basis: 38px;
+    }
+
+    .navbar-menu-toggle {
+        width: 36px;
+        height: 36px;
+        border-radius: 11px;
+    }
+
+    .navbar-account-menu {
+        top: calc(100% + 13px);
     }
 }
