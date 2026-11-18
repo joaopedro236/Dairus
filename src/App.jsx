@@ -15,7 +15,7 @@ function App() {
   const [userInformations, setUserInformations] = useState({})
   const [accountExists, setAccountExists] = useState(false)
   useEffect(() => {
-    checkUserRequisition(setAccountExists, setLoading)
+    checkUserRequisition({setAccountExists, setLoading})
   }, [])
   useEffect(() => {
     getUserRequisition(setUserInformations)
@@ -31,7 +31,7 @@ function App() {
         <Login section={section} setSection={setSection} />
       </section>
       <main className={`${accountExists ? 'flex' : 'hidden'}`}>
-        <Navbar accountExists={accountExists}/>
+        <Navbar userInformations={userInformations}/>
       </main>
     </>
   )
