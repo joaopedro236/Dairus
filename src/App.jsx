@@ -31,7 +31,7 @@ function App() {
         <Login section={section} setSection={setSection} />
       </section>
       <main className={`${accountExists ? 'flex' : 'hidden'}`}>
-        <Navbar userInformations={userInformations}/>
+        <Navbar userInformations={userInformations} setSection={setSection}/>
       </main>
     </>
   )

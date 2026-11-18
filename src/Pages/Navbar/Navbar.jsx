@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './navbar.css'
 import hiddenPhoto from '../../assets/no-profile-picture-icon.webp'
 
-export default function Navbar({ userInformations }) {
+export default function Navbar({ userInformations, setSection}) {
     const userName = userInformations?.name?.trim() || 'Minha conta'
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -47,15 +47,24 @@ export default function Navbar({ userInformations }) {
                         aria-label="Navegação principal"
                         hidden={!isMenuOpen}
                     >
-                        <a onClick={() => setIsMenuOpen(false)}>
+                        <a onClick={() => {
+                            setIsMenuOpen(false)
+                            setSection('Home')
+                        }}>
                             <span>Início</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
-                        <a  onClick={() => setIsMenuOpen(false)}>
+                        <a onClick={() => {
+                            setIsMenuOpen(false)
+                            setSection('CreatePost')
+                        }}>
                             <span>Criar post</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
-                        <a  onClick={() => setIsMenuOpen(false)}>
+                        <a  onClick={() => {
+                            setIsMenuOpen(false)
+                            setSection('Profile')
+                        }}>
                             <span>Perfil</span>
                             <span className="navbar-navigation-arrow" aria-hidden="true">→</span>
                         </a>
