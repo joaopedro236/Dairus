@@ -17,7 +17,7 @@ export default function Navbar({ userInformations, setSection}) {
                 <div className="navbar-profile">
                     <div className="navbar-profile-copy">
                         <span className="navbar-profile-label">Bem-vindo</span>
-                        <span className="navbar-profile-name">{userName.split(' ').slice(0, 2).join(' ')}</span>
+                        <span className="navbar-profile-name">{userName.split(' ').slice(0, 2).join(' ').substring(0, 15)}</span>
                     </div>
                     <img
                         src={userInformations?.image_url || hiddenPhoto}

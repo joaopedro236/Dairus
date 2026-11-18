@@ -204,14 +204,11 @@
         gap: 8px;
     }
 
-    .navbar-profile-label {
+    .navbar-profile-label,
+    .navbar-profile-name {
         display: none;
     }
 
-    .navbar-profile-name {
-        max-width: 130px;
-        font-size: 13px;
-    }
 
     .navbar-avatar {
         width: 38px;
