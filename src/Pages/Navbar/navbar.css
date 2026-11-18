@@ -1,17 +1,18 @@
 
 .Navbar {
-    border-bottom: 1px solid var(--border-navbar);
     height: 65px;
     padding: 0 28px;
     background: var(--bg-primary);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid var(--border-navbar);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.035);
+    z-index: 99;
 }
 
 .titleNavbar {
-    font-weight: 800;
     font-size: 25px;
+    font-weight: 800;
     letter-spacing: -1px;
-    color: var(--white);
+    color: var(--black);
     user-select: none;
 }
 
@@ -23,20 +24,42 @@
 .Navbar img:first-child {
     width: 36px;
     height: 36px;
-    border: 2px solid var(--border-navbar);
+    border: 2px solid var(--white);
     border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--border-navbar);
     cursor: pointer;
 }
 
 .Navbar img:last-child {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
     padding: 3px;
+    opacity: 0.75;
     cursor: pointer;
-    opacity: 0.8;
 }
 
 .Navbar img:hover {
     opacity: 1;
     transform: scale(1.06);
+}
+
+@media (max-width: 480px) {
+    .Navbar {
+        height: 60px;
+        padding: 0 18px;
+    }
+
+    .titleNavbar {
+        font-size: 23px;
+    }
+
+    .Navbar img:first-child {
+        width: 34px;
+        height: 34px;
+    }
+
+    .Navbar img:last-child {
+        width: 26px;
+        height: 26px;
+    }
 }
