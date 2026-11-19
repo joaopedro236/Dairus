@@ -1,5 +1,5 @@
 from fastapi import APIRouter
 router = APIRouter()
 @router.get("/")
-def router():
+def routerTest():
     return{"Status": True}
