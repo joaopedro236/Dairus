@@ -8,7 +8,7 @@ def testAPI():
         response = requests.get(f"{VITE_API_URL}/", timeout=10)
         response.raise_for_status()
         result = response.json()
-        print(result)
+        return result
     except Exception as e:
         return {"Status": False, "Error": str(e)}
-testAPI()
+print(testAPI())
