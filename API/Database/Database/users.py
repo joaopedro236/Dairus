@@ -9,7 +9,8 @@ def database():
         cursor.execute("""create table if not exists users(
         id serial primary key,
         name text not null,
-        email text not null,
+        email text not null, 
+        description text not null default 'Sem Descrição',
         password text not null,
         session_token UUID,
         image_url text

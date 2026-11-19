@@ -7,6 +7,7 @@ from Routers.Users.checkUser import router as checkUser
 from Routers.Users.getUser import router as getUser
 from Middlewares.AuthMiddleware import AuthMiddleware
 from fastapi.responses import JSONResponse
+from Routers.routerTest import router as routerTest
 import time
 from collections import defaultdict
 import os
@@ -56,6 +57,7 @@ app.include_router(createAccountGoogle)
 app.include_router(login)
 app.include_router(checkUser)
 app.include_router(getUser)
+app.include_router(routerTest)
 
 
 @app.on_event("startup")

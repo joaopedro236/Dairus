@@ -8,6 +8,7 @@ PUBLIC_ROUTES = {
     ("POST", "/createAccount"),
     ("POST", "/createAccount/googleAuth"),
     ("POST", "/login"),
+    ("GET", "/"),
 }
 
 
@@ -24,7 +25,7 @@ async def AuthMiddleware(request: Request, call_next):
     token = request.cookies.get("user_session_token")
     if not token:
         return JSONResponse(
-                    status_code=200,
+                    status_code=401,
                     content={"Status": False, "Message": "Unauthorized"}
                 )
         
@@ -43,7 +44,7 @@ async def AuthMiddleware(request: Request, call_next):
 
     if not token or not user:
         return JSONResponse(
-            status_code=200,
+            status_code=401,
             content={"Status": False, "Message": "Unauthorized"}
         )
 
