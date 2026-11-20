@@ -30,13 +30,11 @@
 }
 
 .Profile header div div p {
-<<<<<<< HEAD
+
     font-size: 13px;
 }
-=======
-    font-size:13px ;
-}
+
+    
 .Profile header div {
-    margin-left: 5.5px;
+    margin-left: 6px;
 }
->>>>>>> 26825e0 (fix: update Profile)
