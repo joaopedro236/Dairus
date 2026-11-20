@@ -1,10 +1,7 @@
 import requests
-import os
-from dotenv import load_dotenv
-load_dotenv()
 def testAPI():
     try:
-        VITE_API_URL = os.environ.get("VITE_API_URL")
+        VITE_API_URL  = "https://dairus.onrender.com"
         response = requests.get(f"{VITE_API_URL}/", timeout=10)
         response.raise_for_status()
         result = response.json()

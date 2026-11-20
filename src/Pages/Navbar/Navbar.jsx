@@ -23,6 +23,7 @@
                             src={userInformations?.image_url || hiddenPhoto}
                             alt="photo user"
                             loading='lazy'
+                            onClick={() =>{setSection("Profile")}}
                             className="navbar-avatar"
                         />
                         <button

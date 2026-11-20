@@ -1,13 +1,17 @@
 import './profile.css'
+import hiddenPhoto from "../../assets/no-profile.picture-icon.webp"
 export default function Profile({ userInformations,section }) {
     return (
         <>
             <section className={`Profile ${section == 'Profile' ? 'flex' : 'hidden'} flex-col p-3`} >
-                <header className='flex flex-col mt-5 gap-2 items-center justify-center w-full text-center'>
-                    <img src={userInformations?.image_url} alt="image user" loading='lazy' className=' w-full max-w-40 h-full max-h-40 rounded-full ' />
+                <header className='flex  mt-5 gap-2 items-center justify-center w-full text-center'>
+                    <img src={userInformations?.image_url || hiddenPhoto} alt="image user" loading='lazy' className=' w-full h-full  rounded-full ' />
+                
                     <h1>{userInformations?.name}</h1>
-                    <p className='text-gray '>{userInformations?.email}</p>
+        
                 </header>
+                <p className='text-gray '>{userInformations?.description}</p>
+
             </section>
         </>
     )
