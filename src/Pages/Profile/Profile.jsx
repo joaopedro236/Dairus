@@ -11,15 +11,15 @@ export default function Profile({ userInformations,section }) {
                     <h1>{userInformations?.name}</h1>
             
                     <div className='flex gap-4'>
-                        <div className='flex flex-col '>
+                        <div className='flex flex-col text-center'>
                             <h1>{userInformations?.followersQuantity}</h1>
                             <p>Seguidores</p>
                         </div>
-                        <div className="flex flex-col ">
+                        <div className="flex flex-col text-center">
                             <h1>{userInformations?.followingQuantity}</h1>
                             <p>Seguindo</p>
                         </div>
-                        <div className="flex flex-col ">
+                        <div className="flex flex-col text-center">
                             <h1>{userInformations?.postsQuantity}</h1>
                             <p>Posts</p>
                         </div>
