@@ -13,7 +13,10 @@ def database():
         description text not null default 'Sem Descrição',
         password text not null,
         session_token UUID,
-        image_url text
+        image_url text,
+        FollowersQuantity INTEGER NOT NULL DEFAULT 0,
+        followingquantity INTEGER NOT NULL DEFAULT 0,
+        postsQuantity INTEGER NOT NULL DEFAULT 0,
         )""")
         conn.commit()
     except Exception:
