@@ -9,16 +9,17 @@ export default function Profile({ userInformations,section }) {
                     <img src={userInformations?.image_url || hiddenPhoto} alt="image user" loading='lazy' className=' w-full h-full  rounded-full ' />
                     <div className="flex flex-col gap-4">
                     <h1>{userInformations?.name}</h1>
+            
                     <div className='flex gap-4'>
-                        <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col '>
                             <h1>{userInformations?.followersQuantity}</h1>
                             <p>Seguidores</p>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col ">
                             <h1>{userInformations?.followingQuantity}</h1>
                             <p>Seguindo</p>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col ">
                             <h1>{userInformations?.postsQuantity}</h1>
                             <p>Posts</p>
                         </div>
