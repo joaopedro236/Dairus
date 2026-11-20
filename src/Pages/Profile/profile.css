@@ -40,6 +40,7 @@
 }
 .profileButtons {
     max-width: 660px;
+    gap: 13px;
 }
 .profileButtons button {
     width: 100%;
@@ -47,4 +48,10 @@
     border: 1px solid var(--border-navbar) ;
     border-radius: 15px;
     background-color: var(--color-primary-light);
+}
+@media (min-width:500px) {
+    .profileButtons {
+        flex-direction: column;
+        justify-content: inherit;
+    }
 }
