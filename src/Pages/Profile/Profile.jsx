@@ -1,5 +1,6 @@
 import './profile.css'
-import hiddenPhoto from "../../assets/no-profile.picture-icon.webp"
+import hiddenPhoto from '../../assets/no-profile-picture-icon.webp'
+
 export default function Profile({ userInformations,section }) {
     return (
         <>
