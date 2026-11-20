@@ -11,7 +11,7 @@ def getUser(request: Request):
         session_token = request.cookies.get("user_session_token")
         if not session_token:
             return {'Status': False, 'Message': "Don't have an account"}
-        cursor.execute('select name, description, image_url, FollowersQuantity, followingquantity, postsQuantity from users where session_token = %s', (session_token,))
+        cursor.execute('select name, description, image_url, followersquantity, followingquantity, postsquantity from users where session_token = %s', (session_token,))
         
         response = cursor.fetchone()
         if not response:
