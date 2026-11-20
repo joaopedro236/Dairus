@@ -11,15 +11,15 @@ export default function Profile({ userInformations,section }) {
                     <h1>{userInformations?.name}</h1>
             
                     <div className='flex gap-4'>
-                        <div className='flex flex-col text-center'>
+                        <div className='flex flex-col'>
                             <h1>{userInformations?.followersQuantity}</h1>
                             <p>Seguidores</p>
                         </div>
-                        <div className="flex flex-col text-center">
+                        <div className="flex flex-col ">
                             <h1>{userInformations?.followingQuantity}</h1>
                             <p>Seguindo</p>
                         </div>
-                        <div className="flex flex-col text-center">
+                        <div className="flex flex-col ">
                             <h1>{userInformations?.postsQuantity}</h1>
                             <p>Posts</p>
                         </div>
@@ -28,7 +28,10 @@ export default function Profile({ userInformations,section }) {
         
                 </header>
                 <p className='text-gray '>{userInformations?.description}</p>
-
+                <div className="profileButtons flex items-center justify-between w-full">
+                    <button>Editar Perfil</button>
+                    <button>Compartilhar Perfil</button>
+                </div>
             </section>
         </>
     )

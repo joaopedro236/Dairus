@@ -38,3 +38,13 @@
 .Profile header div {
     margin-left: 6px;
 }
+.profileButtons {
+    max-width: 660px;
+}
+.profileButtons button {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid var(--border-navbar) ;
+    border-radius: 15px;
+    background-color: var(--color-primary-light);
+}
