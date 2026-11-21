@@ -1,68 +1,79 @@
-
-import './StylesGlobals/reset.css'
-import './StylesGlobals/root.css'
-import './StylesGlobals/assets.css'
-import { useState, useEffect } from 'react'
-import Loading from './Pages/Loading/Loading'
-import CreateAccount from './Pages/CreateAccount/CreateAccount'
-import Login from './Pages/Login/Login'
-import getUserRequisition from './Requisitions/getUser'
-import Navbar from './Pages/Navbar/Navbar'
-import checkUserRequisition from './Requisitions/checkUser'
-import Profile from './Pages/Profile/Profile'
+import "./StylesGlobals/reset.css";
+import "./StylesGlobals/root.css";
+import "./StylesGlobals/assets.css";
+import { useState, useEffect } from "react";
+import Loading from "./Pages/Loading/Loading";
+import CreateAccount from "./Pages/CreateAccount/CreateAccount";
+import Login from "./Pages/Login/Login";
+import getUserRequisition from "./Requisitions/getUser";
+import Navbar from "./Pages/Navbar/Navbar";
+import checkUserRequisition from "./Requisitions/checkUser";
+import Profile from "./Pages/Profile/Profile";
+import Alert from "./Pages/Alert/Alert";
 function App() {
-  const [section, setSection] = useState('login')
-  const [loading, setLoading] = useState(false)
-  const [userInformations, setUserInformations] = useState({})
-  const [accountExists, setAccountExists] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("");
+  const [section, setSection] = useState("login");
+  const [loading, setLoading] = useState(false);
+  const [userInformations, setUserInformations] = useState({});
+  const [accountExists, setAccountExists] = useState(false);
   useEffect(() => {
-    checkUserRequisition({setAccountExists, setLoading})
-  }, [])
+    checkUserRequisition({ setAccountExists, setLoading, setErrorMessage });
+  }, []);
   useEffect(() => {
-    getUserRequisition(setUserInformations)
-  }, [accountExists])
+    if (accountExists){
+        getUserRequisition(setUserInformations, setErrorMessage);
+    }
+  }, [accountExists]);
   useEffect(() => {
     if (!accountExists) {
-      document.body.style.paddingTop = ''
-      return
+      document.body.style.paddingTop = "";
+      return;
     }
 
-    const navbar = document.querySelector('.Navbar')
-    if (!navbar) return
+    const navbar = document.querySelector(".Navbar");
+    if (!navbar) return;
 
-    const originalPosition = navbar.style.position
-    const originalTop = navbar.style.top
+    const originalPosition = navbar.style.position;
+    const originalTop = navbar.style.top;
     const updateBodyPadding = () => {
-      navbar.style.position = 'fixed'
-      navbar.style.top = '0'
-      document.body.style.paddingTop = `${navbar.getBoundingClientRect().height + 35}px`
-    }
+      navbar.style.position = "fixed";
+      navbar.style.top = "0";
+      document.body.style.paddingTop = `${navbar.getBoundingClientRect().height + 35}px`;
+    };
 
-    updateBodyPadding()
-    window.addEventListener('resize', updateBodyPadding)
+    updateBodyPadding();
+    window.addEventListener("resize", updateBodyPadding);
     return () => {
-      window.removeEventListener('resize', updateBodyPadding)
-      navbar.style.position = originalPosition
-      navbar.style.top = originalTop
-      document.body.style.paddingTop = ''
-    }
-  }, [accountExists])
+      window.removeEventListener("resize", updateBodyPadding);
+      navbar.style.position = originalPosition;
+      navbar.style.top = originalTop;
+      document.body.style.paddingTop = "";
+    };
+  }, [accountExists]);
   return (
     <>
-      {
-        loading && <Loading />
-      }
-      <section className={`${!accountExists ? 'flex' : 'hidden'}`}>
-
-        <CreateAccount section={section} setSection={setSection} />
-        <Login section={section} setSection={setSection} />
+      {errorMessage && (
+        <Alert errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
+      )}
+      {loading && <Loading />}
+      <section className={`${!accountExists ? "flex" : "hidden"}`}>
+        <CreateAccount
+          setErrorMessage={setErrorMessage}
+          section={section}
+          setSection={setSection}
+        />
+        <Login
+          section={section}
+          setErrorMessage={setErrorMessage}
+          setSection={setSection}
+        />
       </section>
-      <main className={`${accountExists ? 'flex' : 'hidden'} flex-col `}>
-        <Navbar userInformations={userInformations} setSection={setSection}/>
-        <Profile userInformations={userInformations} section={section}/>
+      <main className={`${accountExists ? "flex" : "hidden"} flex-col `}>
+        <Navbar userInformations={userInformations} setSection={setSection} />
+        <Profile userInformations={userInformations} section={section} />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

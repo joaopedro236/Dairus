@@ -1,4 +1,4 @@
-export default async function loginRequisition(formData) {
+export default async function loginRequisition(setErrorMessage,formData) {
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
             method:'POST',
@@ -9,7 +9,7 @@ export default async function loginRequisition(formData) {
             body: JSON.stringify(formData)
         })
         const data = await response.json()
-        if (data?.Error) alert(data?.Error)
+        if (data?.Error) setErrorMessage(data?.Error)
         if (data?.Status) window.location.reload()
     } catch (error) {
         console.error(error)

@@ -1,4 +1,4 @@
-export default async function createAccountRequisition(data, setLoading) {
+export default async function createAccountRequisition(data, setLoading, setErrorMessage) {
     try {
         setLoading(true)
         const response = await fetch(`${import.meta.env.VITE_API_URL}/createAccount`, {
@@ -11,7 +11,7 @@ export default async function createAccountRequisition(data, setLoading) {
         })
         const responseData = await response.json()
         if (responseData?.Error) {
-            alert(responseData?.Error)
+            setErrorMessage(responseData?.Error)
         }
         if (responseData?.Status) window.location.reload()
 

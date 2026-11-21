@@ -1,4 +1,4 @@
-export default async function createAccountRequisition(data, setLoading) {
+export default async function createAccountRequisition(data,setErrorMessage, setLoading) {
     try {
         setLoading(true)
 
@@ -20,7 +20,7 @@ export default async function createAccountRequisition(data, setLoading) {
         const responseData = await response.json()
 
         if (responseData?.Error) {
-            alert(responseData.Error)
+            setErrorMessage(responseData.Error)
         }
 
         if (responseData?.Status) window.location.reload()

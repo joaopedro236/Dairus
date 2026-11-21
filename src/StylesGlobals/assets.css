@@ -24,3 +24,7 @@ h1 {
 .text-ltt {
     font-size: 13px;
 }
+
+.bg-alert {
+    background-color: var(--bg-alert);
+}

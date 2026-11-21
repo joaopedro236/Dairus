@@ -1,4 +1,4 @@
-export default async function checkUserRequisition({setAccountExists, setLoading}) {
+export default async function checkUserRequisition({setErrorMessage, setAccountExists, setLoading}) {
     setLoading(true)
     try {
     
@@ -7,7 +7,7 @@ export default async function checkUserRequisition({setAccountExists, setLoading
         })
         const data = await response.json()
         if (data?.Error) {
-            alert(data?.Error)
+            setErrorMessage(data?.Error)
         }
         setAccountExists(data?.Status)
     } catch (error) {
