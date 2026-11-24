@@ -10,7 +10,7 @@ export default function Login({ section, setSection, setErrorMessage }) {
       <section
         className={`login CreateAccount w-full min-h-screen ${section === "login" ? "flex" : "hidden"} flex-col items-center justify-center gap-3`}
       >
-        <header clsassName="flex flex-col items-center justify-center text-center">
+        <header className="flex flex-col items-center justify-center text-center">
           <h1>Login</h1>
           <p className="text-gray text-center  text-sm">
             Faça login para ter acesso a sua conta e aproveitar todos os

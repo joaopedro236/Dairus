@@ -1,4 +1,4 @@
-export default async function getUserRequisition(setErrorMessage,setUserInformations) {
+export default async function getUserRequisition(setUserInformations,setErrorMessage) {
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/getUser`, {
             credentials:'include'

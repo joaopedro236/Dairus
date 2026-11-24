@@ -1,4 +1,4 @@
-export default async function checkUserRequisition({setErrorMessage, setAccountExists, setLoading}) {
+export default async function checkUserRequisition({ setAccountExists, setLoading,setErrorMessage}) {
     setLoading(true)
     try {
     
