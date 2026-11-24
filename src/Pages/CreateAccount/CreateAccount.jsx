@@ -32,8 +32,8 @@ export default function CreateAccount({
         {
           credential: googleData,
           password,
-          setErrorMessage,
         },
+        setErrorMessage,
         setLoading,
       );
       return;
@@ -142,7 +142,7 @@ export default function CreateAccount({
                     {[0, 1, 2, 3].map((level) => (
                       <div
                         key={level}
-                        className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
+                        className={`h-1.5 flex-1 rounded-md transition-colors duration-300 ${
                           level < passwordStrength
                             ? [
                                 "bg-red-500",
