@@ -14,9 +14,9 @@ def database():
         password text not null,
         session_token UUID,
         image_url text,
-        FollowersQuantity INTEGER NOT NULL DEFAULT 0,
-        followingquantity INTEGER NOT NULL DEFAULT 0,
-        postsQuantity INTEGER NOT NULL DEFAULT 0
+        followers_quantity INTEGER NOT NULL DEFAULT 0,
+        following_quantity INTEGER NOT NULL DEFAULT 0,
+        posts_quantity INTEGER NOT NULL DEFAULT 0
         )""")
         conn.commit()
     except Exception:
