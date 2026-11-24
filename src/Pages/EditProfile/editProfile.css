@@ -1,0 +1,56 @@
+.editProfile {
+    padding: 20px;
+}
+.editProfile header p {
+    font-size: 13.5px;
+}
+.editProfile div button {
+    width: fit-content;
+    transition: margin-left 0.3s ease;
+    
+    max-width: inherit;
+    padding: 0px;
+}
+.editProfileFields {
+    margin-top: 70px;
+}
+.editProfileField {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 70px;
+}
+.editProfileField .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 0;
+    width: 100%;
+}
+.editProfileField .inputGroup input,
+.editProfileField .inputGroup textarea {
+    width: 100%;
+}
+.editProfileField .inputGroup textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+@media (hover:hover) {
+    .editProfile div button:hover {
+        margin-left: 10px;
+    }
+    .editProfile div button:hover::before{
+        content: "➤ ";
+        font-size: 18px;
+        animation: opacity 0.3s ease forwards;
+        
+    }
+    @keyframes opacity {
+        0%{
+            opacity: 0;
+        }
+        100% {
+            opacity: 100;
+        }
+    }
+}

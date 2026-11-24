@@ -50,6 +50,7 @@ function App() {
       document.body.style.paddingTop = "";
     };
   }, [accountExists]);
+  
   return (
     <>
       {errorMessage && (
@@ -70,7 +71,7 @@ function App() {
       </section>
       <main className={`${accountExists ? "flex" : "hidden"} flex-col `}>
         <Navbar userInformations={userInformations} setSection={setSection} />
-        <Profile userInformations={userInformations} section={section} />
+        <Profile userInformations={userInformations} section={section} setSection={setSection}/>
       </main>
     </>
   );

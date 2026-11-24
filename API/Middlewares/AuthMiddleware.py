@@ -25,27 +25,22 @@ async def AuthMiddleware(request: Request, call_next):
     token = request.cookies.get("user_session_token")
     if not token:
         return JSONResponse(
-                    status_code=401,
-                    content={"Status": False, "Message": "Unauthorized"}
-                )
-        
+            status_code=401, content={"Status": False, "Message": "Unauthorized"}
+        )
+
     conn = None
     cursor = None
 
     try:
         conn, cursor = connect_database()
-        cursor.execute(
-            "SELECT id FROM users WHERE session_token = %s",
-            (str(token),)
-        )
+        cursor.execute("SELECT id FROM users WHERE session_token = %s", (str(token),))
         user = cursor.fetchone()
     finally:
         release_database(conn, cursor, poolUser)
 
     if not token or not user:
         return JSONResponse(
-            status_code=401,
-            content={"Status": False, "Message": "Unauthorized"}
+            status_code=401, content={"Status": False, "Message": "Unauthorized"}
         )
 
     return await call_next(request)

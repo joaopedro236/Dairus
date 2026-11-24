@@ -28,3 +28,6 @@ h1 {
 .bg-alert {
     background-color: var(--bg-alert);
 }
+button {
+    cursor: pointer;
+}

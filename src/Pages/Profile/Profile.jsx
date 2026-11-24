@@ -1,7 +1,7 @@
 import "./profile.css";
 import hiddenPhoto from "../../assets/no-profile-picture-icon.webp";
-
-export default function Profile({ userInformations, section }) {
+import EditProfile from "../EditProfile/EditProfile";
+export default function Profile({ userInformations, section, setSection }) {
   return (
     <>
       <section
@@ -12,6 +12,11 @@ export default function Profile({ userInformations, section }) {
             src={userInformations?.image_url || hiddenPhoto}
             alt="image user"
             loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = hiddenPhoto;
+            }}
             className=" w-full h-full  rounded-full "
           />
           <div className="flex flex-col gap-2">
@@ -35,10 +40,11 @@ export default function Profile({ userInformations, section }) {
         </header>
         <p className="text-gray ">{userInformations?.description}</p>
         <div className="profileButtons flex items-center justify-between w-full">
-          <button>Editar Perfil</button>
+          <button onClick={()=> {setSection('editProfile')}}>Editar Perfil</button>
           <button>Compartilhar Perfil</button>
         </div>
       </section>
+        <EditProfile section={section} setSection={setSection}/>
     </>
   );
 }

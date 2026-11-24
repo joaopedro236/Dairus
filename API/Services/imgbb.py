@@ -4,7 +4,6 @@ import requests
 from dotenv import load_dotenv
 from fastapi import APIRouter, File, UploadFile
 
-
 load_dotenv()
 
 router = APIRouter()
@@ -13,7 +12,7 @@ MAX_IMAGE_SIZE = 32 * 1024 * 1024
 
 
 def imgbbUpload(image: bytes, filename: str, content_type: str):
-    api_key =  os.environ.get("IMGBB_URL")
+    api_key = os.environ.get("IMGBB_URL")
     if not api_key:
         return {"Status": False, "Error": "ImgBB API key not configured"}
 
@@ -38,12 +37,8 @@ def imgbbUpload(image: bytes, filename: str, content_type: str):
             return {"Status": False, "Error": error}
 
         data = result["data"]
-        return {
-            "Status": True,
-            "Url": data["url"]
-        }
+        return {"Status": True, "Url": data["url"]}
     except requests.RequestException as error:
         return {"Status": False, "Error": f"ImgBB request failed: {error}"}
     except (KeyError, ValueError) as error:
         return {"Status": False, "Error": f"Invalid ImgBB response: {error}"}
-

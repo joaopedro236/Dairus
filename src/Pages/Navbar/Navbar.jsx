@@ -5,7 +5,6 @@ import hiddenPhoto from "../../assets/no-profile-picture-icon.webp";
 export default function Navbar({ userInformations, setSection }) {
   const userName = userInformations?.name?.trim() || "Minha conta";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <header className="Navbar">
       <div className="navbar-content">
@@ -23,15 +22,19 @@ export default function Navbar({ userInformations, setSection }) {
               {userName.split(" ").slice(0, 2).join(" ").substring(0, 15)}
             </span>
           </div>
-          <img
-            src={userInformations?.image_url || hiddenPhoto}
-            alt="photo user"
-            loading="lazy"
-            onClick={() => {
-              setSection("Profile");
-            }}
-            className="navbar-avatar"
-          />
+          <div className="navbar-avatar-container">
+            <img
+              src={userInformations?.image_url || hiddenPhoto}
+              alt="Foto do usuário"
+              className="navbar-avatar cursor-pointer"
+              referrerPolicy="no-referrer"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = hiddenPhoto;
+              }}
+              onClick={() => setSection("Profile")}
+            />
+          </div>
           <button
             type="button"
             className="navbar-menu-toggle"
