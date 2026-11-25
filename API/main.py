@@ -60,7 +60,7 @@ app.include_router(login)
 app.include_router(checkUser)
 app.include_router(getUser)
 app.include_router(routerTest)
-app.include_router(createPost)
+app.include_router(createPost )
 
 
 @app.on_event("startup")
