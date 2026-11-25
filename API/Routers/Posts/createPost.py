@@ -11,7 +11,7 @@ def create_post(title: str = Form(...),
     conn, cursor = connect_database()
     try:
         image_url = None
-        if image:
+        if image and image.filename:
             image_data = image.file.read()
             upload_result = imgbbUpload(image_data, "post_image", "image/jpeg")
             if upload_result["Status"]:
