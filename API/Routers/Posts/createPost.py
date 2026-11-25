@@ -1,7 +1,8 @@
 from fastapi import APIRouter, File, Form, Form, File, UploadFile, UploadFile
 
 from Services.imgbb import imgbbUpload
-from Database.Conn.posts import connect_database,release_database,pollPost
+from Database.Conn.posts import connect_database, poolPost
+from Database.Conn.release_database import release_database
 router =APIRouter()
 @router.post("/createPost")
 def create_post(title: str = Form(...),
@@ -28,4 +29,4 @@ def create_post(title: str = Form(...),
         conn.rollback()
         return {"Status": False, "error": str(e)}
     finally:
-        release_database(conn, cursor, pollPost)
+        release_database(conn, cursor, poolPost)
