@@ -7,11 +7,13 @@ from Routers.Users.checkUser import router as checkUser
 from Routers.Users.getUser import router as getUser
 from Middlewares.AuthMiddleware import AuthMiddleware
 from fastapi.responses import JSONResponse
+from Database.Database.posts import database as db_post
 from Routers.routerTest import router as routerTest
 import time
 from collections import defaultdict
 import os
 from dotenv import load_dotenv
+from Routers.Posts.createPost    import router as createPost
 
 app = FastAPI()
 
@@ -58,8 +60,10 @@ app.include_router(login)
 app.include_router(checkUser)
 app.include_router(getUser)
 app.include_router(routerTest)
+app.include_router(createPost)
 
 
 @app.on_event("startup")
 def startup():
     db_user()
+    db_post()

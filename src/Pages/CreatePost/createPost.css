@@ -1,0 +1,89 @@
+
+
+.createPost {
+    padding: 24px;
+    max-width: 850px;
+    width: 100%;
+    color: #252a34;
+}
+
+.createPost header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #20242c;
+}
+
+.createPost header p {
+    color: #858b98;
+    line-height: 1.5;
+}
+
+.createPost form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.createPost form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #343a46;
+    margin-top: 12px;
+}
+
+.createPost form input,
+.createPost form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #e2e5eb;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #252a34;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.createPost form input {
+    height: 46px;
+}
+
+.createPost form textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.createPost form input::placeholder,
+.createPost form textarea::placeholder {
+    color: #a0a5b0;
+}
+
+.createPost form input:focus,
+.createPost form textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+.createPost form input:hover,
+.createPost form textarea:hover {
+    border-color: #c5cad4;
+}
+
+@media (max-width: 640px) {
+    .createPost {
+        padding: 18px;
+    }
+
+    .createPost header h1 {
+        font-size: 21px;
+    }
+
+    .createPost form input,
+    .createPost form textarea {
+        font-size: 14px;
+    }
+}

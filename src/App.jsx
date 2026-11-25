@@ -10,6 +10,7 @@ import Navbar from "./Pages/Navbar/Navbar";
 import checkUserRequisition from "./Requisitions/checkUser";
 import Profile from "./Pages/Profile/Profile";
 import Alert from "./Pages/Alert/Alert";
+import CreatePost from "./Pages/CreatePost/createPost";
 function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [section, setSection] = useState("login");
@@ -72,6 +73,7 @@ function App() {
       <main className={`${accountExists ? "flex" : "hidden"} flex-col `}>
         <Navbar userInformations={userInformations} setSection={setSection} />
         <Profile userInformations={userInformations} section={section} setSection={setSection}/>
+        <CreatePost section={section} setErrorMessage={setErrorMessage} setLoading={setLoading}/>
       </main>
     </>
   );

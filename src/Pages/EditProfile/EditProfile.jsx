@@ -14,18 +14,24 @@ export default function EditProfile({ section, setSection }) {
                 <header>
                     <h1>Editar Seu perfil</h1>
                     <p className='text-gray'>Nessa sessão você pode editar seu perfil</p>
-                    <button className='fixed top-4 left-4 w-8 h-8 rounded-full bg-transparent border-2 border-black' onClick={() => { setSection('Profile') }}>X</button>
+                    <button className={`buttonRemove fixed top-4 left-4 w-8 h-8 rounded-full bg-transparent ${activeField ? 'hidden' : 'flex items-center justify-center'}`} onClick={() => { setSection('Profile') }}>X</button>
                 </header>
                 {activeField === null ? (
                     <div className='editProfileFields flex flex-col gap-3'>
-                        <button type='button' onClick={() => toggleField('name')}>Editar Nome</button>
-                        <button type='button' onClick={() => toggleField('photo')}>Editar Foto</button>
-                        <button type='button' onClick={() => toggleField('description')}>Editar Descrição</button>
-                        <button type='button' onClick={() => toggleField('email')}>Editar Email</button>
-                        <button type='button' onClick={() => toggleField('password')}>Editar Senha</button>
+                        <button type='button' className='editProfileButton' onClick={() => toggleField('name')}>Editar Nome</button>
+                        <button type='button' className='editProfileButton' onClick={() => toggleField('photo')}>Editar Foto</button>
+                        <button type='button ' className='editProfileButton' onClick={() => toggleField('description')}>Editar Descrição</button>
+                        <button type='button' className='editProfileButton' onClick={() => toggleField('email')}>Editar Email</button>
+                        <button type='button' className='editProfileButton' onClick={() => toggleField('password')}>Editar Senha</button>
                     </div>
                 ) : (
-                    <div className='editProfileField'>
+                    <form
+                        className='editProfileField'
+                        onSubmit={(event) => event.preventDefault()}
+                    >
+                        <button className='buttonRemove fixed top-4 left-4 w-8! h-8 rounded-full bg-transparent' onClick={() => { setActiveField(null) }}>X</button>
+
+
                         {activeField === 'name' && (
                             <div className='inputGroup'>
                                 <label htmlFor='editName'>Nome</label>
@@ -56,9 +62,12 @@ export default function EditProfile({ section, setSection }) {
                                 <input id='editPassword' name='password' type='password' placeholder='Digite sua nova senha' />
                             </div>
                         )}
-                    </div>
+                        <button type='submit' className='editProfileSubmit'>
+                            Salvar alterações
+                        </button>
+                    </form>
                 )}
-            </section>
+            </section >
         </>
     )
 }
