@@ -34,13 +34,14 @@ def validateWithJSON(name):
         )
 
         pattern = r"(?<!\w)" + re.escape(normalizedWord).replace(r"\ ", r"\s+") + r"(?!\w)"
-
         if re.search(pattern, normalizedName):
             return False
 
     return True
 def createAccountValidation(data, cursor):
     try:
+        if not validateWithJSON(data.name):
+            return {"Status": False, "Error": "Name with inappropriate content"}
         prompt = f"""Analyze the following name and determine whether it contains inappropriate, offensive, vulgar, hateful, or sexually explicit content. Return only "BLOCK" if inappropriate, or "SAFE" if acceptable.
         Name: {data.name}"""
         try:
@@ -58,8 +59,7 @@ def createAccountValidation(data, cursor):
                 raise ValueError("Unable to validate name")
 
         except Exception:
-            if not validateWithJSON(data.name):
-                return {"Status": False, "Error": "Name with inappropriate content"}
+            pass
         cursor.execute("select email from users where email =%s", (data.email,))
         emailExists = cursor.fetchall()
         if emailExists:
