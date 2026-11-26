@@ -26,8 +26,8 @@ def getUser(request: Request):
         p.title,
         p.description,
         p.image_url,
-        p.Likes,
-        p.Deslikes
+        p.likes,
+        p.deslikes
     FROM users u
     LEFT JOIN "Posts" p
         ON u.session_token = p.session_token
