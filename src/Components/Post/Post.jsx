@@ -41,8 +41,8 @@ export default function Post({ info }) {
                     </div>
                 )}
                 <div className="likes flex flex-wrap gap-3 items-center">
-                    <button
-                        type="button"
+                    <div
+
                         title="Quantidade de gostei"
                         className="cursor-pointer flex flex-wrap gap-2 items-center"
 
@@ -63,9 +63,9 @@ export default function Post({ info }) {
                             <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L13 2a3 3 0 0 1 2 3.88Z" />
                         </svg>
                         <p>{info?.likes}</p>
-                    </button>
-                    <button
-                        type="button"
+                    </div>
+                    <div
+
                         title="Quantidade de não gostei"
                         className="cursor-pointer flex flex-wrap gap-2 items-center"
                     >
@@ -84,7 +84,24 @@ export default function Post({ info }) {
                             <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L11 22a3 3 0 0 1-2-3.88Z" />
                         </svg>
                         <p>{info?.deslikes}</p>
-                    </button>
+                    </div>
+                    <div className='cursor-pointer flex flex-wrap gap-2 items-center '>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19"
+                            height="19"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        <p>{info?.viewsQuantity}</p>
+                    </div>
                 </div>
             </section>
         </>

@@ -12,7 +12,8 @@ def database():
             description TEXT NOT NULL,
             image_url TEXT,
             Likes INTEGER NOT NULL DEFAULT 0,
-            Deslikes INTEGER NOT NULL DEFAULT 0
+            Deslikes INTEGER NOT NULL DEFAULT 0,
+            viewsQuantity INTEGER NOT NULL DEFAULT 0
         )""")
         conn.commit()
     except Exception:
