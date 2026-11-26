@@ -28,7 +28,7 @@ def getUser(request: Request):
         p.title,
         p.description,
         p.image_url
-    FROM "Users" u
+    FROM users u
     LEFT JOIN "Posts" p
         ON u.session_token = p.session_token
     WHERE u.session_token = %s
