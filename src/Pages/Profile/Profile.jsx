@@ -6,7 +6,7 @@ export default function Profile({ userInformations, section, setSection, setErro
   const posts = userInformations?.posts?.map((post) => ({
     ...post,
     name: userInformations.name,
-    user_image_url: userInformations.image_url
+    image_url: userInformations.image_url
   })) || [];
   return (
     <>
@@ -51,7 +51,7 @@ export default function Profile({ userInformations, section, setSection, setErro
         </div>
         <div className="profilePosts   flex flex-col w-full gap-8 mt-5">
           <header className="flex flex-col">
-            <h1>Seus Posts</h1>
+            <h1 className="text-lg">Seus Posts</h1>
           </header>
           {posts.map((post, index) => (
             <Post
