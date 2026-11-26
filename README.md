@@ -5,22 +5,7 @@
 Dairus is a social web application where users can create accounts, manage their profiles, and share posts through a clean and responsive interface.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
-  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/FastAPI-0.136-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
-  <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/pnpm-Package_Manager-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Vercel-Frontend-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
-  <img src="https://img.shields.io/badge/Render-Backend-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render" />
+  <img src="https://skillicons.dev/icons?i=python,fastapi,postgres,html,css,bootstrap,js,react,vite,git,github,vscode,pnpm,vercel,render&perline=8" alt="Dairus Technologies" />
 </p>
 
 ---
@@ -54,20 +39,31 @@ Dairus is a social web application where users can create accounts, manage their
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| <img src="https://cdn.simpleicons.org/react/61DAFB" width="18" /> React | Frontend library |
-| <img src="https://cdn.simpleicons.org/vite/646CFF" width="18" /> Vite | Frontend tooling |
-| <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="18" /> Tailwind CSS | Styling |
-| <img src="https://cdn.simpleicons.org/pnpm/F69220" width="18" /> pnpm | Package manager |
-| <img src="https://cdn.simpleicons.org/python/3776AB" width="18" /> Python | Backend language |
-| <img src="https://cdn.simpleicons.org/fastapi/009688" width="18" /> FastAPI | REST API framework |
-| <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="18" /> PostgreSQL | Relational database |
-| <img src="https://cdn.simpleicons.org/argon2/000000" width="18" /> Argon2 | Password hashing |
-| <img src="https://cdn.simpleicons.org/google/4285F4" width="18" /> Google OAuth | Authentication |
-| <img src="https://cdn.simpleicons.org/google/4285F4" width="18" /> Google reCAPTCHA | Bot protection |
-| <img src="https://cdn.simpleicons.org/imgbb/000000" width="18" /> ImgBB | Image hosting |
-| <img src="https://cdn.simpleicons.org/groq/000000" width="18" /> Groq | AI integration |
+**Frontend**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,bootstrap,js,react,vite,pnpm&perline=8" alt="Frontend Technologies" />
+</p>
+
+**Backend & Database**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=python,fastapi,postgres&perline=8" alt="Backend Technologies" />
+</p>
+
+**Development & Deployment**
+
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,vercel,render&perline=8" alt="Development and Deployment Technologies" />
+</p>
+
+**Additional Integrations**
+
+- Google OAuth
+- Google reCAPTCHA v3
+- ImgBB
+- Groq API
+- Argon2
 
 ---
 
@@ -208,7 +204,7 @@ Start the FastAPI server:
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-The API will be available at:
+API address:
 
 `http://localhost:8000`
 
@@ -228,7 +224,7 @@ Start the development server:
 pnpm dev
 ```
 
-The frontend will usually be available at:
+Frontend address:
 
 `http://localhost:5173`
 
@@ -326,8 +322,6 @@ Configure the backend environment variables in the Render dashboard:
 
 ### Production Configuration
 
-Make sure both services are correctly configured:
-
 1. Deploy the frontend through Vercel.
 2. Deploy the backend through Render.
 3. Set `VITE_API_URL` to the deployed Render API URL.
@@ -357,5 +351,7 @@ Dairus is under active development. New features, improvements, and optimization
 ---
 
 <p align="center">
-  <b>Built with ❤️ using React, FastAPI and PostgreSQL.</b>
+  <img src="https://skillicons.dev/icons?i=react,python,fastapi,postgres&perline=4" alt="Dairus Stack" />
+  <br />
+  <b>Built with passion and modern technologies.</b>
 </p>
