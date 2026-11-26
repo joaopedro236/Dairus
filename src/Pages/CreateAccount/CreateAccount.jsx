@@ -63,6 +63,7 @@ export default function CreateAccount({
               <input
                 type="text"
                 name="name"
+                minLength={3} maxLength={100}
                 id="name"
                 placeholder="Coloque seu nome"
                 required

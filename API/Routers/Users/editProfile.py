@@ -26,8 +26,7 @@ async def edit_profile(
         if not session_token:
             return {"Status": False, "Error": "Session not found"}
 
-        conn,cursor = connect_database()
-       
+        conn, cursor = connect_database()
 
         cursor.execute(
             "SELECT id FROM users WHERE session_token = %s", (session_token,)
@@ -75,7 +74,6 @@ async def edit_profile(
     except Exception as error:
         if conn:
             conn.rollback()
-
 
         return {
             "Status": False,

@@ -1,10 +1,21 @@
 import './editProfile.css'
 import { useState } from 'react'
+import zxcvbn from "zxcvbn";
+
 import editProfileRequisition from '../../Requisitions/editProfie'
 export default function EditProfile({ section, setSection, setErrorMessage }) {
     const [activeField, setActiveField] = useState(null)
-
+    const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false)
+    const passwordStrength = zxcvbn(password).score;
+    
+      const strengthLabels = [
+        "Muito fraca",
+        "Fraca",
+        "Razoável",
+        "Forte",
+        "Muito forte",
+      ];
     const toggleField = (field) => {
         setActiveField(activeField === field ? null : field)
     }
@@ -40,7 +51,7 @@ export default function EditProfile({ section, setSection, setErrorMessage }) {
                         {activeField === 'name' && (
                             <div className='inputGroup'>
                                 <label htmlFor='editName'>Nome</label>
-                                <input id='editName' name='name' type='text' placeholder='Digite seu nome' />
+                                <input id='editName' name='name' type='text' placeholder='Digite seu nome' minLength={3} maxLength={100} />
                             </div>
                         )}
                         {activeField === 'photo' && (
@@ -52,7 +63,7 @@ export default function EditProfile({ section, setSection, setErrorMessage }) {
                         {activeField === 'description' && (
                             <div className='inputGroup'>
                                 <label htmlFor='editDescription'>Descrição</label>
-                                <textarea id='editDescription' name='description' placeholder='Digite sua descrição' />
+                                <textarea id='editDescription' name='description' placeholder='Digite sua descrição' minLength={5} maxLength={100} />
                             </div>
                         )}
                         {activeField === 'email' && (
@@ -62,13 +73,44 @@ export default function EditProfile({ section, setSection, setErrorMessage }) {
                             </div>
                         )}
                         {activeField === 'password' && (
-                            <div className='inputGroup'>
-                                <label htmlFor='editPassword'>Senha</label>
-                                <input id='editPassword' name='password' type='password' placeholder='Digite sua nova senha' />
-                            </div>
+                            <>
+                                <div className='inputGroup'>
+                                    <label htmlFor='editPassword'>Senha</label>
+                                    <input id='editPassword' name='password' type='password' placeholder='Digite sua nova senha' value={password}
+                                        onChange={(event) => setPassword(event.target.value)} />
+                                </div>
+                                {password && (
+                                    <div className="w-full text-left">
+                                        <div className="flex gap-1 mt-2">
+                                            {[0, 1, 2, 3].map((level) => (
+                                                <div
+                                                    key={level}
+                                                    className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${level < passwordStrength
+                                                        ? [
+                                                            "bg-red-500",
+                                                            "bg-orange-500",
+                                                            "bg-yellow-400",
+                                                            "bg-green-500",
+                                                        ][passwordStrength - 1]
+                                                        : "bg-gray-300"
+                                                        }`}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        <p className="text-sm mt-1">
+                                            Força da senha: {strengthLabels[passwordStrength]}
+                                        </p>
+                                    </div>
+                                )}
+                            </>
                         )}
-                        <button type='submit' className='editProfileSubmit' >
-                            {loading ? 'Enviando...' : 'Enviar'}
+                        <button type='submit' className='editProfileSubmit'  disabled={()=>{
+                            if(activeField === 'password'){
+                                return passwordStrength < 3
+                            }
+                        }}>
+                            {loading ? 'Enviando...' : 'Enviar'}    
                         </button>
                     </form>
                 )}

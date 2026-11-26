@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, Form, Form, File, UploadFile, UploadFile
+from fastapi import APIRouter, File, Form, Form, File, UploadFile, UploadFile, Request
 
 from Services.imgbb import imgbbUpload
 from Database.Conn.posts import connect_database, poolPost
@@ -9,9 +9,13 @@ router = APIRouter()
 
 @router.post("/createPost")
 def create_post(
-    title: str = Form(...), description: str = Form(...), image: UploadFile = File(None)
+    request: Request,
+    title: str = Form(...),
+    description: str = Form(...),
+    image: UploadFile = File(None),
 ):
     conn, cursor = connect_database()
+    session_token = request.cookies.get("user_session_token")
     try:
         image_url = None
         if image and image.filename:
@@ -23,8 +27,25 @@ def create_post(
                 return {"Status": False, "error": upload_result["Error"]}
 
         cursor.execute(
-            """INSERT INTO "Posts" (title, description, image_url) VALUES (%s, %s, %s)""",
-            (title, description, image_url),
+            """WITH post AS (
+    INSERT INTO "Posts" (
+        title,
+        description,
+        image_url,
+        session_token
+    )
+    VALUES (%s, %s, %s, %s)
+    ON CONFLICT (session_token)
+    DO UPDATE SET
+        title = EXCLUDED.title,
+        description = EXCLUDED.description,
+        image_url = EXCLUDED.image_url
+    RETURNING session_token
+)
+UPDATE "Users"
+SET posts_quantity = COALESCE(posts_quantity, 0) + 1
+WHERE session_token = (SELECT session_token FROM post);""",
+            (title, description, image_url, session_token),
         )
         conn.commit()
         return {"Status": True}

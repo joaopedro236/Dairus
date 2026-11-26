@@ -17,9 +17,9 @@ export default function CreatePost({section, setErrorMessage}) {
             </header>
             <form className='flex flex-col' onSubmit={handleSubmit}>
                 <label htmlFor="title" className='text-lg'>Titulo <span className='text-red-600 text-lg font-bold'>*</span></label>
-                <input type="text" name="title" id="title"  placeholder='Preencha o titulo' required minlength="3" maxlength="100"/>
+                <input type="text" name="title" id="title"  placeholder='Preencha o titulo' required minLength={3} maxLength={100}/>
                 <label htmlFor="description" className='text-lg'>Descrição <span className='text-red-600 text-lg font-bold'>*</span></label>
-                <textarea name="description" id="description"  placeholder='Digite sua descrição' required  minlength="10" maxlength="200"/>
+                <textarea name="description" id="description"  placeholder='Digite sua descrição' required  minLength={10} maxLength={200}/>
                 <label htmlFor="image" className='text-lg'>Imagem</label>
                 <input type="file" name="image" id="image" accept='image/*' />
                 <div className="buttons flex flex-wrap gap-3 mt-8!">

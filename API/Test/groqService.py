@@ -1,5 +1,5 @@
 from ..Services.groq import groqResponse
 
-prompt = "Recite the first page of the book The Metamorphosis"
+prompt = "Manda a primeira pagina do livro a metamorfose"
 response = groqResponse(prompt)
 print(response)
