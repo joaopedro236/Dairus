@@ -72,7 +72,7 @@ function App() {
       </section>
       <main className={`${accountExists ? "flex" : "hidden"} flex-col `}>
         <Navbar userInformations={userInformations} setSection={setSection} />
-        <Profile userInformations={userInformations} section={section} setSection={setSection}/>
+        <Profile  userInformations={userInformations} section={section} setSection={setSection} setErrorMessage={setErrorMessage}/>
         <CreatePost section={section} setErrorMessage={setErrorMessage} setLoading={setLoading}/>
       </main>
     </>

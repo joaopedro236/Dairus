@@ -22,6 +22,6 @@ def createAccountValidation(data, cursor):
         emailExists = cursor.fetchall()
         if emailExists:
             return {"Status": False, "Error": "This email already exists"}
-        return {'Status':True}
+        return {"Status": True}
     except Exception as e:
         return {"Status": False, "Error": str(e)}

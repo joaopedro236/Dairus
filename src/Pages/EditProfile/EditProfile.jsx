@@ -1,20 +1,25 @@
 import './editProfile.css'
 import { useState } from 'react'
-
-export default function EditProfile({ section, setSection }) {
+import editProfileRequisition from '../../Requisitions/editProfile'
+export default function EditProfile({ section, setSection, setErrorMessage }) {
     const [activeField, setActiveField] = useState(null)
 
+    const [loading, setLoading] = useState(false)
     const toggleField = (field) => {
         setActiveField(activeField === field ? null : field)
     }
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        await editProfileRequisition(formData, setErrorMessage, setLoading);
+    }
     return (
         <>
-            <section className={`editProfile w-full ${section == 'editProfile' ? 'flex' : 'hidden'} flex-col justify-center `}>
+            <section className={`editProfile w-full ${section == 'editProfile' ? 'flex' : 'hidden'} flex-col justify-center  gap-3 `}>
                 <header>
                     <h1>Editar Seu perfil</h1>
                     <p className='text-gray'>Nessa sessão você pode editar seu perfil</p>
-                    <button className={`buttonRemove fixed top-4 left-4 w-8 h-8 rounded-full bg-transparent ${activeField ? 'hidden' : 'flex items-center justify-center'}`} onClick={() => { setSection('Profile') }}>X</button>
+                    <button className={`buttonRemove fixed top-6 left-4 w-8 h-8 rounded-full bg-transparent ${activeField ? 'hidden' : 'flex items-center justify-center'}`} onClick={() => { setSection('Profile') }}>X</button>
                 </header>
                 {activeField === null ? (
                     <div className='editProfileFields flex flex-col gap-3'>
@@ -62,8 +67,8 @@ export default function EditProfile({ section, setSection }) {
                                 <input id='editPassword' name='password' type='password' placeholder='Digite sua nova senha' />
                             </div>
                         )}
-                        <button type='submit' className='editProfileSubmit'>
-                            Salvar alterações
+                        <button type='submit' className='editProfileSubmit' onClick={handleSubmit}>
+                            {loading ? 'Enviando...' : 'Enviar'}
                         </button>
                     </form>
                 )}

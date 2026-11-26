@@ -8,6 +8,7 @@ import uuid
 import os
 from argon2 import PasswordHasher
 from Validation.createAccountGoogleValidation import createAccountGoogleValidation
+
 ph = PasswordHasher()
 
 router = APIRouter()
@@ -32,7 +33,7 @@ def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
         email = google_data["email"]
         name = google_data["name"]
         validation = createAccountGoogleValidation(google_data, email, name)
-        if validation.get('Status') == False:
+        if validation.get("Status") == False:
             return validation
         picture = google_data.get("picture")
         conn, cursor = connect_database()
@@ -64,7 +65,7 @@ def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
         responseCookie.set_cookie(
             key="user_session_token",
             value=session_token,
-            httponly=True,  
+            httponly=True,
             max_age=60 * 60 * 24 * 14,
             samesite="none",
             secure=True,

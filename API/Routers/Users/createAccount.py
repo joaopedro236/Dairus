@@ -18,9 +18,9 @@ def createAccount(data: createAccountSchema, responseCookie: Response):
 
     try:
         conn, cursor = connect_database()
-        validation =createAccountValidation(data, cursor    )
-        if validation.get('Status') == False:
-            return validation        
+        validation = createAccountValidation(data, cursor)
+        if validation.get("Status") == False:
+            return validation
         session_token = str(uuid.uuid4())
         hashPassword = ph.hash(data.password)
         cursor.execute(

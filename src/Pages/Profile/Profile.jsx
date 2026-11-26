@@ -1,7 +1,7 @@
 import "./profile.css";
 import hiddenPhoto from "../../assets/no-profile-picture-icon.webp";
 import EditProfile from "../EditProfile/EditProfile";
-export default function Profile({ userInformations, section, setSection }) {
+export default function Profile({ userInformations, section, setSection,setErrorMessage }) {
   return (
     <>
       <section
@@ -44,7 +44,7 @@ export default function Profile({ userInformations, section, setSection }) {
           <button>Compartilhar Perfil</button>
         </div>
       </section>
-        <EditProfile section={section} setSection={setSection}/>
+        <EditProfile section={section} setSection={setSection} setErrorMessage={setErrorMessage}/>
     </>
   );
 }

@@ -3,11 +3,14 @@ from fastapi import APIRouter, File, Form, Form, File, UploadFile, UploadFile
 from Services.imgbb import imgbbUpload
 from Database.Conn.posts import connect_database, poolPost
 from Database.Conn.release_database import release_database
-router =APIRouter()
+
+router = APIRouter()
+
+
 @router.post("/createPost")
-def create_post(title: str = Form(...),
-    description: str = Form(...),
-    image: UploadFile = File(None)):
+def create_post(
+    title: str = Form(...), description: str = Form(...), image: UploadFile = File(None)
+):
     conn, cursor = connect_database()
     try:
         image_url = None

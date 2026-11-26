@@ -13,7 +13,8 @@ import time
 from collections import defaultdict
 import os
 from dotenv import load_dotenv
-from Routers.Posts.createPost    import router as createPost
+from Routers.Posts.createPost import router as createPost
+from Routers.Users.editProfile import router as editProfile
 
 app = FastAPI()
 
@@ -60,7 +61,8 @@ app.include_router(login)
 app.include_router(checkUser)
 app.include_router(getUser)
 app.include_router(routerTest)
-app.include_router(createPost )
+app.include_router(createPost)
+app.include_router(editProfile)
 
 
 @app.on_event("startup")
