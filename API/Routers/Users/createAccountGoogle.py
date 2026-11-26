@@ -6,6 +6,7 @@ from Database.Conn.release_database import release_database
 from Database.Conn.users import connect_database, poolUser
 import uuid
 import os
+from Services.recapcha import verify_recaptcha
 from argon2 import PasswordHasher
 from Validation.createAccountGoogleValidation import createAccountGoogleValidation
 
@@ -16,12 +17,21 @@ GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID")
 
 
 @router.post("/createAccount/googleAuth")
-def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
+async def googleLogin(data: createAccountGoogleSchema, responseCookie: Response):
     conn = None
     cursor = None
 
     try:
+        recaptcha_valid = await verify_recaptcha(
+            data.recaptcha_token,
+            "google_signup"
+        )
 
+        if not recaptcha_valid:
+            return {
+                "Status": False,
+                "Error": "Falha na verificação de segurança."
+            }
         credential = data.credential
 
         if not credential:

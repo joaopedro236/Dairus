@@ -1,4 +1,4 @@
-export default async function createAccountRequisition(data, setLoading, setErrorMessage) {
+export default async function createAccountRequisition(data, setLoading, setErrorMessage, token) {
     try {
         setLoading(true)
         const response = await fetch(`${import.meta.env.VITE_API_URL}/createAccount`, {
@@ -7,7 +7,10 @@ export default async function createAccountRequisition(data, setLoading, setErro
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({
+                ...data,
+                recaptcha_token: token
+            }),
         })
         const responseData = await response.json()
         if (responseData?.Error) {

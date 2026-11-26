@@ -1,4 +1,4 @@
-export default async function createAccountRequisition(data,setErrorMessage, setLoading) {
+export default async function createAccountRequisition(data, setErrorMessage, setLoading,token) {
     try {
         setLoading(true)
 
@@ -12,7 +12,9 @@ export default async function createAccountRequisition(data,setErrorMessage, set
                 },
                 body: JSON.stringify({
                     credential: data.credential,
-                    password: data.password
+                    password: data.password,
+
+                    recaptcha_token: token
                 })
             }
         )

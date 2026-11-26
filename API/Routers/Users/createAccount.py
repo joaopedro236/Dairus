@@ -2,9 +2,9 @@ from fastapi import APIRouter, Response
 from Schemas.Users.createAccount import createAccountSchema
 from Database.Conn.release_database import release_database
 from Database.Conn.users import connect_database, poolUser
-from Services.groq import groqResponse
 from Validation.createAccountValidation import createAccountValidation
 import uuid
+from Services.recapcha import verify_recaptcha
 from argon2 import PasswordHasher
 
 router = APIRouter()
@@ -12,11 +12,21 @@ ph = PasswordHasher()
 
 
 @router.post("/createAccount")
-def createAccount(data: createAccountSchema, responseCookie: Response):
+async def createAccount(data: createAccountSchema, responseCookie: Response):
     conn = None
     cursor = None
 
     try:
+        recaptcha_valid = await verify_recaptcha(
+            data.recaptcha_token,
+            "create_account"
+        )
+
+        if not recaptcha_valid:
+            return {
+                "Status": False,
+                "Error": "Security check failed."
+            }
         conn, cursor = connect_database()
         validation = createAccountValidation(data, cursor)
         if validation.get("Status") == False:

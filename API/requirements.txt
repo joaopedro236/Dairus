@@ -11,3 +11,4 @@ redis
 openai
 argon2
 google-auth
+httpx

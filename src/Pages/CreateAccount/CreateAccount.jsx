@@ -1,5 +1,6 @@
 import "./createAccount.css";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import zxcvbn from "zxcvbn";
 import GoogleButton from "../../Services/GoogleButton";
 import createAccountGoogleRequisition from "../../Requisitions/createAccountGoogle";
@@ -11,6 +12,7 @@ export default function CreateAccount({
 }) {
   const [googleData, setGoogleData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [password, setPassword] = useState("");
 
   const passwordStrength = zxcvbn(password).score;
@@ -24,14 +26,18 @@ export default function CreateAccount({
   ];
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!executeRecaptcha) return;
 
     if (passwordStrength < 3) return;
-
+    const token = await executeRecaptcha(
+      googleData ? "google_signup" : "create_account"
+    );
     if (googleData) {
       await createAccountGoogleRequisition(
         {
           credential: googleData,
           password,
+          recaptcha_token: token,
         },
         setErrorMessage,
         setLoading,
@@ -40,7 +46,11 @@ export default function CreateAccount({
     }
 
     const data = Object.fromEntries(new FormData(e.target));
-    await createAccountRequisition(data, setLoading, setErrorMessage);
+    await createAccountRequisition(
+      { ...data, recaptcha_token: token },
+      setLoading,
+      setErrorMessage
+    );
   };
   return (
     <>
@@ -94,16 +104,15 @@ export default function CreateAccount({
                     {[0, 1, 2, 3].map((level) => (
                       <div
                         key={level}
-                        className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
-                          level < passwordStrength
-                            ? [
-                                "bg-red-500",
-                                "bg-orange-500",
-                                "bg-yellow-400",
-                                "bg-green-500",
-                              ][passwordStrength - 1]
-                            : "bg-gray-300"
-                        }`}
+                        className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${level < passwordStrength
+                          ? [
+                            "bg-red-500",
+                            "bg-orange-500",
+                            "bg-yellow-400",
+                            "bg-green-500",
+                          ][passwordStrength - 1]
+                          : "bg-gray-300"
+                          }`}
                       />
                     ))}
                   </div>
@@ -143,16 +152,15 @@ export default function CreateAccount({
                     {[0, 1, 2, 3].map((level) => (
                       <div
                         key={level}
-                        className={`h-1.5 flex-1 rounded-md transition-colors duration-300 ${
-                          level < passwordStrength
-                            ? [
-                                "bg-red-500",
-                                "bg-orange-500",
-                                "bg-yellow-400",
-                                "bg-green-500",
-                              ][passwordStrength - 1]
-                            : "bg-gray-300"
-                        }`}
+                        className={`h-1.5 flex-1 rounded-md transition-colors duration-300 ${level < passwordStrength
+                          ? [
+                            "bg-red-500",
+                            "bg-orange-500",
+                            "bg-yellow-400",
+                            "bg-green-500",
+                          ][passwordStrength - 1]
+                          : "bg-gray-300"
+                          }`}
                       />
                     ))}
                   </div>
