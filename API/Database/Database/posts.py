@@ -11,6 +11,8 @@ def database():
             title TEXT NOT NULL,
             description TEXT NOT NULL,
             image_url TEXT,
+            session_token UUID,
+
             Likes INTEGER NOT NULL DEFAULT 0,
             Deslikes INTEGER NOT NULL DEFAULT 0,
             viewsQuantity INTEGER NOT NULL DEFAULT 0
