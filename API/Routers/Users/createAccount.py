@@ -17,16 +17,10 @@ async def createAccount(data: createAccountSchema, responseCookie: Response):
     cursor = None
 
     try:
-        recaptcha_valid = await verify_recaptcha(
-            data.recaptcha_token,
-            "create_account"
-        )
+        recaptcha_valid = await verify_recaptcha(data.recaptcha_token, "create_account")
 
         if not recaptcha_valid:
-            return {
-                "Status": False,
-                "Error": "Security check failed."
-            }
+            return {"Status": False, "Error": "Security check failed."}
         conn, cursor = connect_database()
         validation = createAccountValidation(data, cursor)
         if validation.get("Status") == False:

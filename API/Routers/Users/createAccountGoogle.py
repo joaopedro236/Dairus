@@ -22,16 +22,10 @@ async def googleLogin(data: createAccountGoogleSchema, responseCookie: Response)
     cursor = None
 
     try:
-        recaptcha_valid = await verify_recaptcha(
-            data.recaptcha_token,
-            "google_signup"
-        )
+        recaptcha_valid = await verify_recaptcha(data.recaptcha_token, "google_signup")
 
         if not recaptcha_valid:
-            return {
-                "Status": False,
-                "Error": "Falha na verificação de segurança."
-            }
+            return {"Status": False, "Error": "Falha na verificação de segurança."}
         credential = data.credential
 
         if not credential:

@@ -12,32 +12,28 @@ def loadOffensiveWords():
     with open(filePath, "r", encoding="utf-8") as file:
         words = json.load(file)
 
-    return [
-        word
-        for languageWords in words.values()
-        for word in languageWords
-    ]
+    return [word for languageWords in words.values() for word in languageWords]
 
 
 def validateWithJSON(name):
     normalizedName = unicodedata.normalize("NFKD", name.casefold())
-    normalizedName = "".join(
-        c for c in normalizedName
-        if not unicodedata.combining(c)
-    )
+    normalizedName = "".join(c for c in normalizedName if not unicodedata.combining(c))
 
     for word in loadOffensiveWords():
         normalizedWord = unicodedata.normalize("NFKD", word.casefold())
         normalizedWord = "".join(
-            c for c in normalizedWord
-            if not unicodedata.combining(c)
+            c for c in normalizedWord if not unicodedata.combining(c)
         )
 
-        pattern = r"(?<!\w)" + re.escape(normalizedWord).replace(r"\ ", r"\s+") + r"(?!\w)"
+        pattern = (
+            r"(?<!\w)" + re.escape(normalizedWord).replace(r"\ ", r"\s+") + r"(?!\w)"
+        )
         if re.search(pattern, normalizedName):
             return False
 
     return True
+
+
 def createAccountValidation(data, cursor):
     try:
         if not validateWithJSON(data.name):

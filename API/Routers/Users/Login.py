@@ -15,16 +15,10 @@ async def login(data: loginSchema, response: Response):
     conn = None
     cursor = None
     try:
-        recaptcha_valid = await verify_recaptcha(
-                    data.recaptcha_token,
-                    "login"
-                )
-        
+        recaptcha_valid = await verify_recaptcha(data.recaptcha_token, "login")
+
         if not recaptcha_valid:
-            return {
-                        "Status": False,
-                        "Error": "Security check failed."
-                    }
+            return {"Status": False, "Error": "Security check failed."}
         conn, cursor = connect_database()
         cursor.execute(
             "select password, session_token from users where email = %s ", (data.email,)

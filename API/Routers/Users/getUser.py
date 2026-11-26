@@ -25,7 +25,9 @@ def getUser(request: Request):
         u.posts_quantity,
         p.title,
         p.description,
-        p.image_url
+        p.image_url,
+        p.likes,
+        p.deslikes
     FROM users u
     LEFT JOIN "Posts" p
         ON u.session_token = p.session_token
@@ -37,7 +39,7 @@ def getUser(request: Request):
         if not response:
             return {"Status": False, "Message": "User not found"}
         posts = [
-            {"title": row[6], "description": row[7], "post_image_url": row[8]}
+            {"title": row[6], "description": row[7], "post_image_url": row[8], 'likes': row[9], 'deslikes': row[10]}
             for row in response
             if row[6] is not None
         ]

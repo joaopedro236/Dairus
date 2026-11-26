@@ -6,16 +6,13 @@ async def verify_recaptcha(token: str, expected_action: str):
     secret_key = os.getenv("RECAPTCHA_SECRET_KEY")
 
     if not secret_key or not token:
-        return {'Status': False}
+        return {"Status": False}
 
     try:
         async with httpx.AsyncClient(timeout=10) as client:
             response = await client.post(
                 "https://www.google.com/recaptcha/api/siteverify",
-                data={
-                    "secret": secret_key,
-                    "response": token
-                }
+                data={"secret": secret_key, "response": token},
             )
 
             response.raise_for_status()
@@ -28,5 +25,4 @@ async def verify_recaptcha(token: str, expected_action: str):
         )
 
     except (httpx.HTTPError, ValueError):
-        return {'Status': False}
-     
+        return {"Status": False}
