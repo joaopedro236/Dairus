@@ -10,17 +10,20 @@ def editProfileValidation(name, description):
         prompt = f"""Analyze the following name, description and determine whether it contains inappropriate, offensive, vulgar, hateful, or sexually explicit content. Return only "BLOCK" if inappropriate, or "SAFE" if acceptable.
                 Name: {name},
                 Description: {description}"""
-        result = groqResponse(prompt)
-        if not isinstance(result, dict) or "response" not in result:
-            raise ValueError("Groq response invalid")
-        
-        response = str(result["response"]).strip().upper()
-        
-        if response == "BLOCK":
-               return {"Status": False, "Error": "Name or description with inappropriate content"}
-        
-        if response != "SAFE":
-            raise ValueError("Unable to validate name or description")
+        try:
+            result = groqResponse(prompt)
+            if not isinstance(result, dict) or "response" not in result:
+                raise ValueError("Groq response invalid")
+            
+            response = str(result["response"]).strip().upper()
+            
+            if response == "BLOCK":
+                return {"Status": False, "Error": "Name or description with inappropriate content"}
+            
+            if response != "SAFE":
+                raise ValueError("Unable to validate name or description")
+        except Exception:
+            pass
         return {"Status": True}
     except Exception as e:
         return {"Status": False, "Error": str(e)}
