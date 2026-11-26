@@ -9,7 +9,7 @@ import getUserRequisition from "./Requisitions/getUser";
 import Navbar from "./Pages/Navbar/Navbar";
 import checkUserRequisition from "./Requisitions/checkUser";
 import Profile from "./Pages/Profile/Profile";
-import Alert from "./Pages/Alert/Alert";
+import Alert from "./Components/Alert/Alert";
 import CreatePost from "./Pages/CreatePost/createPost";
 function App() {
   const [errorMessage, setErrorMessage] = useState("");

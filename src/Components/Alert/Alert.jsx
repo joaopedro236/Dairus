@@ -16,7 +16,7 @@ export default function Alert({ setErrorMessage, errorMessage }) {
     <>
       <div className="alert bg-alert flex flex-col gap-3 ">
         <h1>Alerta de Error</h1>
-        <p className="text-sm ">{setErrorMessage}</p>
+        <p className="text-sm ">{errorMessage}</p>
       </div>
     </>
   );
