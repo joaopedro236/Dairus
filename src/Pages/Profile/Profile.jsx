@@ -28,7 +28,7 @@ export default function Profile({ userInformations, section, setSection, setErro
           <div className="flex flex-col gap-2">
             <h1>{userInformations?.name}</h1>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <div className="flex flex-col">
                 <h1>{userInformations?.followersQuantity}</h1>
                 <p>Seguidores</p>
@@ -49,7 +49,10 @@ export default function Profile({ userInformations, section, setSection, setErro
           <button onClick={() => { setSection('editProfile') }}>Editar Perfil</button>
           <button>Compartilhar Perfil</button>
         </div>
-        <div className="profilePosts flex flex-col w-full gap-5 mt-5">
+        <div className="profilePosts   flex flex-col w-full gap-8 mt-5">
+          <header className="flex flex-col">
+            <h1>Seus Posts</h1>
+          </header>
           {posts.map((post, index) => (
             <Post
               key={index}
