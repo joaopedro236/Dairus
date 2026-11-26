@@ -76,11 +76,10 @@ async def edit_profile(
         if conn:
             conn.rollback()
 
-        print(f"Edit profile error: {error}")
 
         return {
             "Status": False,
-            "Error": "An internal error occurred while updating the profile",
+            "Error": str(error),
         }
 
     finally:

@@ -32,7 +32,7 @@ export default function EditProfile({ section, setSection, setErrorMessage }) {
                 ) : (
                     <form
                         className='editProfileField'
-                        onSubmit={(event) => event.preventDefault()}
+                        onSubmit={handleSubmit}
                     >
                         <button className='buttonRemove fixed top-4 left-4 w-8! h-8 rounded-full bg-transparent' onClick={() => { setActiveField(null) }}>X</button>
 
@@ -67,7 +67,7 @@ export default function EditProfile({ section, setSection, setErrorMessage }) {
                                 <input id='editPassword' name='password' type='password' placeholder='Digite sua nova senha' />
                             </div>
                         )}
-                        <button type='submit' className='editProfileSubmit' onClick={handleSubmit}>
+                        <button type='submit' className='editProfileSubmit' >
                             {loading ? 'Enviando...' : 'Enviar'}
                         </button>
                     </form>
