@@ -5,45 +5,50 @@
 Dairus is a social web application where users can create accounts, manage their profiles, and share posts through a clean and responsive interface.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
-  <img src="https://img.shields.io/badge/TypeScript-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FastAPI-0.136-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/pnpm-Package_Manager-F69220?style=for-the-badge&logo=pnpm&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-0.136-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
+  <img src="https://img.shields.io/badge/pnpm-Package_Manager-F69220?style=for-the-badge&logo=pnpm&logoColor=white" alt="pnpm" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Vercel-Frontend-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  <img src="https://img.shields.io/badge/Render-Backend-46E3B7?style=for-the-badge&logo=render&logoColor=black" alt="Render" />
 </p>
 
 ---
 
 ## ✨ Features
 
-- **Authentication**
-  - Email and password registration.
-  - Google authentication.
-  - Google reCAPTCHA v3 verification.
-  - Secure cookie-based sessions.
+### Authentication
+- Email and password registration.
+- Google account registration.
+- Google reCAPTCHA v3 verification.
+- Secure cookie-based user sessions.
 
-- **User Profiles**
-  - Profile viewing and management.
-  - Profile information editing.
-  - Profile picture uploads.
+### User Profiles
+- Profile viewing and management.
+- Profile information editing.
+- Profile picture uploads.
 
-- **Social Features**
-  - Post creation.
-  - Optional image uploads.
-  - User-generated content.
+### Social Features
+- Post creation.
+- Optional image uploads.
+- User-generated content.
 
-- **Backend & Infrastructure**
-  - PostgreSQL database integration.
-  - Automatic database table initialization.
-  - Request rate limiting.
-  - API request validation.
-  - External service integrations.
+### Backend & Infrastructure
+- PostgreSQL database integration.
+- Automatic database table initialization.
+- Request rate limiting.
+- API request validation.
+- External service integrations.
 
 ---
 
@@ -51,18 +56,18 @@ Dairus is a social web application where users can create accounts, manage their
 
 | Technology | Purpose |
 |---|---|
-| <img src="https://cdn.simpleicons.org/react/61DAFB" width="18"/> React | Frontend library |
-| <img src="https://cdn.simpleicons.org/vite/646CFF" width="18"/> Vite | Frontend tooling |
-| <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="18"/> Tailwind CSS | Styling |
-| <img src="https://cdn.simpleicons.org/pnpm/F69220" width="18"/> pnpm | Package manager |
-| <img src="https://cdn.simpleicons.org/python/3776AB" width="18"/> Python | Backend language |
-| <img src="https://cdn.simpleicons.org/fastapi/009688" width="18"/> FastAPI | REST API framework |
-| <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="18"/> PostgreSQL | Relational database |
-| <img src="https://cdn.simpleicons.org/argon2/000000" width="18"/> Argon2 | Password hashing |
-| <img src="https://cdn.simpleicons.org/google/4285F4" width="18"/> Google OAuth | Authentication |
-| <img src="https://cdn.simpleicons.org/google/4285F4" width="18"/> reCAPTCHA v3 | Bot protection |
-| <img src="https://cdn.simpleicons.org/imgbb/000000" width="18"/> ImgBB | Image hosting |
-| <img src="https://cdn.simpleicons.org/groq/000000" width="18"/> Groq | AI integration |
+| <img src="https://cdn.simpleicons.org/react/61DAFB" width="18" /> React | Frontend library |
+| <img src="https://cdn.simpleicons.org/vite/646CFF" width="18" /> Vite | Frontend tooling |
+| <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="18" /> Tailwind CSS | Styling |
+| <img src="https://cdn.simpleicons.org/pnpm/F69220" width="18" /> pnpm | Package manager |
+| <img src="https://cdn.simpleicons.org/python/3776AB" width="18" /> Python | Backend language |
+| <img src="https://cdn.simpleicons.org/fastapi/009688" width="18" /> FastAPI | REST API framework |
+| <img src="https://cdn.simpleicons.org/postgresql/4169E1" width="18" /> PostgreSQL | Relational database |
+| <img src="https://cdn.simpleicons.org/argon2/000000" width="18" /> Argon2 | Password hashing |
+| <img src="https://cdn.simpleicons.org/google/4285F4" width="18" /> Google OAuth | Authentication |
+| <img src="https://cdn.simpleicons.org/google/4285F4" width="18" /> Google reCAPTCHA | Bot protection |
+| <img src="https://cdn.simpleicons.org/imgbb/000000" width="18" /> ImgBB | Image hosting |
+| <img src="https://cdn.simpleicons.org/groq/000000" width="18" /> Groq | AI integration |
 
 ---
 
@@ -159,7 +164,11 @@ Configure the required variables:
 
 The PostgreSQL database must already exist. The API initializes the application tables when it starts.
 
-### 3. Start the backend
+---
+
+## 💻 Running Locally
+
+### 1. Start the Backend
 
 Navigate to the API directory:
 
@@ -187,7 +196,7 @@ Activate it:
 source .venv/bin/activate
 ```
 
-Install dependencies:
+Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -201,13 +210,11 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 The API will be available at:
 
-```text
-http://localhost:8000
-```
+`http://localhost:8000`
 
-### 4. Start the frontend
+### 2. Start the Frontend
 
-Open another terminal in the project root:
+Open another terminal in the project root.
 
 Install dependencies:
 
@@ -223,9 +230,7 @@ pnpm dev
 
 The frontend will usually be available at:
 
-```text
-http://localhost:5173
-```
+`http://localhost:5173`
 
 ---
 
@@ -256,7 +261,7 @@ The backend exposes the following main endpoints:
 | `POST` | `/createPost` | Create a new post | Required |
 | `PUT` | `/editProfile` | Update profile information | Required |
 
-**Authentication details:**
+### Authentication
 
 - Sessions are managed through an HttpOnly cookie named `user_session_token`.
 - Passwords are hashed using Argon2.
@@ -267,40 +272,68 @@ The backend exposes the following main endpoints:
 
 ## 🚀 Deployment
 
-### Backend
+Dairus uses **Vercel** for frontend hosting and **Render** for backend hosting.
 
-The API can be deployed using [Render](https://render.com/).
+### Frontend — Vercel
 
-Recommended configuration:
+The React application is deployed through [Vercel](https://vercel.com/).
+
+**Recommended configuration:**
 
 | Setting | Value |
 |---|---|
+| Framework Preset | Vite |
+| Root Directory | `./` |
+| Build Command | `pnpm build` |
+| Output Directory | `dist` |
+| Install Command | `pnpm install` |
+
+**Environment Variables:**
+
+Configure the following variables in the Vercel dashboard:
+
+```env
+VITE_API_URL=https://your-api.onrender.com
+VITE_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+```
+
+Deployments are automatically triggered when changes are pushed to the connected GitHub repository.
+
+### Backend — Render
+
+The FastAPI application is hosted on [Render](https://render.com/).
+
+**Recommended configuration:**
+
+| Setting | Value |
+|---|---|
+| Runtime | Python |
 | Root Directory | `API` |
 | Build Command | `pip install -r requirements.txt` |
 | Start Command | `uvicorn main:app --host 0.0.0.0 --port $PORT` |
 
-Configure the required environment variables in the hosting provider dashboard.
+**Environment Variables:**
 
-### Frontend
+Configure the backend environment variables in the Render dashboard:
 
-The frontend can be deployed to platforms such as:
+- PostgreSQL connection credentials.
+- `FRONTEND_URLS` — deployed Vercel frontend origin.
+- `RECAPTCHA_SECRET_KEY`
+- `GOOGLE_CLIENT_ID`
+- `IMGBB_URL`
+- `GROQ_API_KEY` (optional).
 
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Production Configuration
 
-Build the production application:
+Make sure both services are correctly configured:
 
-```bash
-pnpm build
-```
-
-The generated files will be available in:
-
-```text
-dist/
-```
-
-Set `VITE_API_URL` to your deployed API URL before building.
+1. Deploy the frontend through Vercel.
+2. Deploy the backend through Render.
+3. Set `VITE_API_URL` to the deployed Render API URL.
+4. Add the Vercel frontend URL to `FRONTEND_URLS` on Render.
+5. Configure Google OAuth and reCAPTCHA with the production domains.
+6. Ensure PostgreSQL connectivity and HTTPS cookie settings are properly configured.
 
 ---
 
