@@ -3,11 +3,11 @@ from Database.Conn.release_database import release_database
 from Database.Conn.users import connect_database, poolUser
 from Services.imgbb import imgbbUpload
 from argon2 import PasswordHasher
-
+from Validation.editProfileValidation import editProfileValidation
 ph = PasswordHasher()
 
 router = APIRouter()
-
+prompt = ""
 
 @router.put("/editProfile")
 async def edit_profile(
@@ -47,7 +47,10 @@ async def edit_profile(
             }.items()
             if value is not None
         }
+        validation = editProfileValidation(name, description)
 
+        if not validation["Status"]:
+            return validation
         if photo and photo.filename:
             image = await photo.read()
 
