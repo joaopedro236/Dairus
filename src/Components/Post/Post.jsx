@@ -1,7 +1,7 @@
 import './Post.css'
 import hiddenPhoto from "../../assets/no-profile-picture-icon.webp";
 
-export default function Post(info) {
+export default function Post({info}) {
     return (
         <>
             <section className="post flex flex-col w-full gap-5">
@@ -15,7 +15,7 @@ export default function Post(info) {
                             event.currentTarget.onerror = null;
                             event.currentTarget.src = hiddenPhoto;
                         }}
-                        className=" w-7 h-7 rounded-full "
+                        className=" w-5 h-5 rounded-full "
                     />
                     <p className='text-sm text-gray'>{info?.name}</p>
                 </header>
