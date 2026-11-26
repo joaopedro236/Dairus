@@ -1,6 +1,6 @@
 import './editProfile.css'
 import { useState } from 'react'
-import editProfileRequisition from '../../Requisitions/editProfile'
+import editProfileRequisition from '../../Requisitions/editProfie'
 export default function EditProfile({ section, setSection, setErrorMessage }) {
     const [activeField, setActiveField] = useState(null)
 
