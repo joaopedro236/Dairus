@@ -40,7 +40,7 @@ export default function CreateAccount({
     }
 
     const data = Object.fromEntries(new FormData(e.target));
-    await createAccountRequisition(data, setErrorMessage, setLoading);
+    await createAccountRequisition(data, setLoading, setErrorMessage);
   };
   return (
     <>
