@@ -40,11 +40,12 @@ export default function Post({ info }) {
                         />
                     </div>
                 )}
-                <div className="likes flex flex-wrap gap-3">
+                <div className="likes flex flex-wrap gap-3 items-center">
                     <button
                         type="button"
                         title="Quantidade de gostei"
-                        className="cursor-pointer"
+                        className="cursor-pointer flex flex-wrap gap-2 items-center"
+
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +54,7 @@ export default function Post({ info }) {
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
+
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -60,12 +62,12 @@ export default function Post({ info }) {
                             <path d="M7 10v12" />
                             <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L13 2a3 3 0 0 1 2 3.88Z" />
                         </svg>
-                        <p>{info?.like}</p>
+                        <p>{info?.likes}</p>
                     </button>
                     <button
                         type="button"
                         title="Quantidade de não gostei"
-                        className="cursor-pointer"
+                        className="cursor-pointer flex flex-wrap gap-2 items-center"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +82,8 @@ export default function Post({ info }) {
                         >
                             <path d="M17 14V2" />
                             <path d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L11 22a3 3 0 0 1-2-3.88Z" />
-                        <p>{info?.deslike}</p>
                         </svg>
+                        <p>{info?.deslikes}</p>
                     </button>
                 </div>
             </section>

@@ -24,7 +24,7 @@ def create_post(
             if upload_result["Status"]:
                 image_url = upload_result["Url"]
             else:
-                return {"Status": False, "error": upload_result["Error"]}
+                return {"Status": False, "Error": upload_result["Error"]}
 
         cursor.execute(
             """WITH post AS (
@@ -42,7 +42,7 @@ def create_post(
         image_url = EXCLUDED.image_url
     RETURNING session_token
 )
-UPDATE "Users"
+UPDATE users
 SET posts_quantity = COALESCE(posts_quantity, 0) + 1
 WHERE session_token = (SELECT session_token FROM post);""",
             (title, description, image_url, session_token),
@@ -51,6 +51,6 @@ WHERE session_token = (SELECT session_token FROM post);""",
         return {"Status": True}
     except Exception as e:
         conn.rollback()
-        return {"Status": False, "error": str(e)}
+        return {"Status": False, "Error": str(e)}
     finally:
         release_database(conn, cursor, poolPost)
