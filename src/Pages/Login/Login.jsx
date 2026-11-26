@@ -9,7 +9,7 @@ export default function Login({ section, setSection, setErrorMessage }) {
     if (!executeRecaptcha) return;
     const token = await executeRecaptcha("login");
     const formData = Object.fromEntries(new FormData(e.target));
-    await loginRequisition(token,formData, setErrorMessage,);
+    await loginRequisition(token, formData, setErrorMessage,);
   };
   return (
     <>
@@ -53,6 +53,13 @@ export default function Login({ section, setSection, setErrorMessage }) {
           >
             Crie uma
           </span>
+        </p>
+        <p className="text-xs text-gray-500 text-center">
+          Protegido pelo reCAPTCHA. Aplicam-se a
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer" className="text-blue-500"> Política de Privacidade </a>
+          e os
+          <a href="https://policies.google.com/terms" target="_blank" rel="noreferrer" className="text-blue-500"> Termos de Serviço </a>
+          do Google.
         </p>
       </section>
     </>
