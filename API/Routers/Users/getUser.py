@@ -8,9 +8,7 @@ router = APIRouter()
 @router.get("/getUser")
 def getUser(request: Request):
     conn = None
-    connPosts = None
     cursor = None
-    cursorPosts = None
     try:
         conn, cursor = connect_database()
         session_token = request.cookies.get("user_session_token")
@@ -45,12 +43,12 @@ def getUser(request: Request):
         ]
         return {
             "Status": True,
-            "name": response[0],
-            "description": response[1],
-            "image_url": response[2],
-            "followersQuantity": response[3],
-            "followingQuantity": response[4],
-            "postsQuantity": response[5],
+            "name": response[0][0],
+            "description": response[0][1],
+            "image_url": response[0][2],
+            "followersQuantity": response[0][3],
+            "followingQuantity": response[0][4],
+            "postsQuantity": response[0][5],
             "posts": posts,
         }
     except Exception as e:
