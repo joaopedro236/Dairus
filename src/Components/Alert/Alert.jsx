@@ -1,8 +1,7 @@
 import "./alert.css";
 import { useEffect } from "react";
 export default function Alert({ setErrorMessage, errorMessage }) {
-  useEffect 
-    (() => {
+  useEffect (() => {
       if (!errorMessage) return;
 
       const timer = setTimeout(() => {
@@ -12,6 +11,7 @@ export default function Alert({ setErrorMessage, errorMessage }) {
       return () => clearTimeout(timer);
     },
       [errorMessage, setErrorMessage]);
+  if (!errorMessage) return null;
   return (
     <>
       <div className="alert bg-alert flex flex-col gap-3 ">

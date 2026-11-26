@@ -54,9 +54,8 @@ function App() {
   
   return (
     <>
-      {errorMessage && (
-        <Alert errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
-      )}
+      <Alert errorMessage={errorMessage} setErrorMessage={setErrorMessage} />
+      
       {loading && <Loading />}
       <section className={`${!accountExists ? "flex" : "hidden"}`}>
         <CreateAccount
