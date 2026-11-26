@@ -85,7 +85,7 @@ export default function Post({ info }) {
                         </svg>
                         <p>{info?.deslikes}</p>
                     </div>
-                    <div className='cursor-pointer flex flex-wrap gap-2 items-center '>
+                    <div  title='Quantidade de views' className='cursor-pointer flex flex-wrap gap-2 items-center '>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="19"
