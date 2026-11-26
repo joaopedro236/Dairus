@@ -19,15 +19,15 @@ async def edit_profile(
     photo: UploadFile | None = File(None),
 ):
     conn = None
-
+    cursor = None
     try:
         session_token = request.cookies.get("user_session_token")
 
         if not session_token:
             return {"Status": False, "Error": "Session not found"}
 
-        conn = connect_database(poolUser)
-        cursor = conn.cursor()
+        conn,cursor = connect_database()
+       
 
         cursor.execute(
             "SELECT id FROM users WHERE session_token = %s", (session_token,)
