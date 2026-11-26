@@ -2,7 +2,7 @@ import './editProfile.css'
 import { useState } from 'react'
 import zxcvbn from "zxcvbn";
 
-import editProfileRequisition from '../../Requisitions/editProfie'
+import editProfileRequisition from '../../Requisitions/editProfile'
 export default function EditProfile({ section, setSection, setErrorMessage }) {
     const [activeField, setActiveField] = useState(null)
     const [password, setPassword] = useState('');
