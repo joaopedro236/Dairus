@@ -1,7 +1,13 @@
 import "./profile.css";
 import hiddenPhoto from "../../assets/no-profile-picture-icon.webp";
 import EditProfile from "../EditProfile/EditProfile";
-export default function Profile({ userInformations, section, setSection,setErrorMessage }) {
+import Post from "../../Components/Post/Post";
+export default function Profile({ userInformations, section, setSection, setErrorMessage }) {
+  const posts = userInformations?.posts?.map((post) => ({
+    ...post,
+    name: userInformations.name,
+    user_image_url: userInformations.image_url
+  })) || [];
   return (
     <>
       <section
@@ -40,11 +46,19 @@ export default function Profile({ userInformations, section, setSection,setError
         </header>
         <p className="text-gray ">{userInformations?.description}</p>
         <div className="profileButtons flex items-center justify-between w-full">
-          <button onClick={()=> {setSection('editProfile')}}>Editar Perfil</button>
+          <button onClick={() => { setSection('editProfile') }}>Editar Perfil</button>
           <button>Compartilhar Perfil</button>
         </div>
+        <div className="profilePosts flex flex-col w-full gap-5 mt-5">
+          {posts.map((post, index) => (
+            <Post
+              key={index}
+              info={post}
+            />
+          ))}
+        </div>
       </section>
-        <EditProfile section={section} setSection={setSection} setErrorMessage={setErrorMessage}/>
+      <EditProfile section={section} setSection={setSection} setErrorMessage={setErrorMessage} />
     </>
   );
 }
