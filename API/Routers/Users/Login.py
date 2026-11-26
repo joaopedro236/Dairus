@@ -4,16 +4,27 @@ from Database.Conn.release_database import release_database
 from Database.Conn.users import connect_database, poolUser
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError
+from Services.recapcha import verify_recaptcha
 
 ph = PasswordHasher()
 router = APIRouter()
 
 
 @router.post("/login")
-def login(data: loginSchema, response: Response):
+async def login(data: loginSchema, response: Response):
     conn = None
     cursor = None
     try:
+        recaptcha_valid = await verify_recaptcha(
+                    data.recaptcha_token,
+                    "login"
+                )
+        
+        if not recaptcha_valid:
+            return {
+                        "Status": False,
+                        "Error": "Security check failed."
+                    }
         conn, cursor = connect_database()
         cursor.execute(
             "select password, session_token from users where email = %s ", (data.email,)

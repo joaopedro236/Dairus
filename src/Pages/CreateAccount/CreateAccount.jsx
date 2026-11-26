@@ -37,7 +37,7 @@ export default function CreateAccount({
         {
           credential: googleData,
           password,
-          recaptcha_token: token,
+          recaptcha_token: token, 
         },
         setErrorMessage,
         setLoading,

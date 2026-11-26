@@ -1,4 +1,4 @@
-export default async function loginRequisition(formData,setErrorMessage,) {
+export default async function loginRequisition(token,formData,setErrorMessage,) {
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
             method:'POST',
@@ -6,7 +6,10 @@ export default async function loginRequisition(formData,setErrorMessage,) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify({
+                ...formData,
+                recaptcha_token: token
+            }),
         })
         const data = await response.json()
         if (data?.Error) setErrorMessage(data?.Error)

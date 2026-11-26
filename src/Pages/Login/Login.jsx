@@ -1,9 +1,15 @@
 import loginRequisition from "../../Requisitions/login";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
 export default function Login({ section, setSection, setErrorMessage }) {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!executeRecaptcha) return;
+    const token = await executeRecaptcha("login");
     const formData = Object.fromEntries(new FormData(e.target));
-    await loginRequisition(formData, setErrorMessage);
+    await loginRequisition(token,formData, setErrorMessage,);
   };
   return (
     <>
