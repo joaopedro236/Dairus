@@ -27,26 +27,24 @@ def create_post(
                 return {"Status": False, "Error": upload_result["Error"]}
 
         cursor.execute(
-            """WITH post AS (
-    INSERT INTO "Posts" (
-        title,
-        description,
-        image_url,
-        session_token
-    )
-    VALUES (%s, %s, %s, %s)
-    ON CONFLICT (session_token)
-    DO UPDATE SET
-        title = EXCLUDED.title,
-        description = EXCLUDED.description,
-        image_url = EXCLUDED.image_url
-    RETURNING session_token
-)
-UPDATE users
-SET posts_quantity = COALESCE(posts_quantity, 0) + 1
-WHERE session_token = (SELECT session_token FROM post);""",
+            """
+            WITH post AS (
+                INSERT INTO "Posts" (
+                    title,
+                    description,
+                    image_url,
+                    session_token
+                )
+                VALUES (%s, %s, %s, %s)
+                RETURNING session_token
+            )
+            UPDATE users
+            SET posts_quantity = COALESCE(posts_quantity, 0) + 1
+            WHERE session_token = (SELECT session_token FROM post);
+            """,
             (title, description, image_url, session_token),
         )
+
         conn.commit()
         return {"Status": True}
     except Exception as e:
